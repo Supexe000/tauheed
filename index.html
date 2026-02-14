@@ -42,8 +42,16 @@
 
     <!-- Hero Section -->
     <section id="hero">
-        <!-- Dynamic Frame Background -->
-        <div id="hero-background"></div>
+        <!-- Dynamic Video Background -->
+        <div id="hero-background">
+            <!-- Autoplay logic handled in JS for sound support -->
+            <video id="hero-video" autoplay muted loop playsinline poster="assets/poster.jpg">
+                <source src="huhu.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay"></div>
+
+        </div>
 
         <div class="hero-content">
             <h1 class="hero-title">

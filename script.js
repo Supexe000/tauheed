@@ -516,103 +516,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ------------------------------------------------------------------
-    // HERO FRAME ANIMATION (Seamless Double-Buffer)
+    // HERO VIDEO (Silent Background)
     // ------------------------------------------------------------------
-    const heroBg = document.getElementById('hero-background');
-    if (heroBg) {
-        const TOTAL_FRAMES = 182;
-        const SCREEN_FPS = 24; // Target playback speed
-        const FRAME_INTERVAL = 1000 / SCREEN_FPS;
-
-        let loadedCount = 0;
-        let frames = [];
-        let isPlaying = false;
-
-        // Create Double Buffer Elements
-        const frameA = document.createElement('img');
-        frameA.className = 'hero-frame active'; // Start visible
-        frameA.alt = "Background Animation";
-        frameA.src = "frames/frame001.webp"; // Initialize first frame
-
-        const frameB = document.createElement('img');
-        frameB.className = 'hero-frame';
-        frameB.alt = "Background Animation";
-
-        heroBg.appendChild(frameA);
-        heroBg.appendChild(frameB);
-
-        // Active buffer tracking
-        let activeBuffer = frameA;
-        let backBuffer = frameB;
-
-        // Preload function
-        const preloadFrames = () => {
-            // Create image objects in memory
-            for (let i = 1; i <= TOTAL_FRAMES; i++) {
-                const img = new Image();
-                // "frame001.webp" format
-                const paddedIndex = i.toString().padStart(3, '0');
-                img.src = `frames/frame${paddedIndex}.webp`;
-
-                img.onload = () => {
-                    loadedCount++;
-                    // Start when enough frames are buffered (e.g., 30 frames or ~1 sec of video)
-                    if (!isPlaying && loadedCount > 30) {
-                        isPlaying = true;
-                        requestAnimationFrame(animationLoop);
-                    }
-                };
-
-                // Store path for easy access
-                frames.push(img.src);
-            }
-        };
-
-        let currentFrameIndex = 0;
-        let lastTime = 0;
-
-        const animationLoop = (timestamp) => {
-            if (!lastTime) lastTime = timestamp;
-            const elapsed = timestamp - lastTime;
-
-            if (elapsed > FRAME_INTERVAL) {
-                // Advance Frame
-                currentFrameIndex = (currentFrameIndex + 1) % TOTAL_FRAMES;
-
-                // Swap Logic
-                // 1. Set Back Buffer to New Frame
-                backBuffer.src = frames[currentFrameIndex];
-
-                // 2. Crossfade
-                // Since this runs every ~40ms (24fps), and CSS transition is 0.08s (80ms),
-                // we get a continuous blend.
-                activeBuffer.classList.remove('active');
-                backBuffer.classList.add('active');
-
-                // 3. Swap references
-                const temp = activeBuffer;
-                activeBuffer = backBuffer;
-                backBuffer = temp;
-
-                lastTime = timestamp;
-            }
-
-            requestAnimationFrame(animationLoop);
-        };
-
-        // Start Preloading
-        preloadFrames();
-
-        // Optional: Apply zoom to container for cinematic feel
-        // heroBg.classList.add('zoom-effect'); 
-        // We defined .zoom-effect in CSS but applying it to the container or frames 
-        // might conflict with the rapid DOM swaps or cause repaint issues. 
-        // Ideally, zoom the CONTAINER, not the rapidly swapping images.
-        heroBg.style.transition = "transform 20s ease-in-out";
-        heroBg.style.transform = "scale(1.1)";
-
-        setInterval(() => {
-            heroBg.style.transform = heroBg.style.transform === "scale(1.1)" ? "scale(1.0)" : "scale(1.1)";
-        }, 20000);
+    const heroVideo = document.getElementById('hero-video');
+    if (heroVideo) {
+        heroVideo.muted = true; // Ensure muted
+        heroVideo.playbackRate = 0.8; // Cinematic slow motion
     }
 });
