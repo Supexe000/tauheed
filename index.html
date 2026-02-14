@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Video Editor & Graphic Designer</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@400;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-text">HIRE ME</div>
+    </div>
+
+    <!-- Background Logos -->
+    <div id="logo-container"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">PORTFOLIO</div>
+        <!-- Simple nav for consistency -->
+        <div class="nav-links">
+            <a href="graphic-design.html" class="nav-item">Graphic Design</a>
+            <a href="video-editing.html" class="nav-item">Video Editing</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <!-- Dynamic Frame Background -->
+        <div id="hero-background"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="line">Creative</span>
+                <span class="line">Portfolio</span>
+            </h1>
+            <p class="hero-subtitle">Video Editor & Graphic Designer</p>
+
+            <div class="category-selector">
+                <a href="video-editing.html" class="category-card">
+                    <span class="cat-icon"><i class="fa-solid fa-film"></i></span>
+                    <span class="cat-title">Video Editing</span>
+                    <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+                <a href="graphic-design.html" class="category-card">
+                    <span class="cat-icon"><i class="fa-solid fa-pen-nib"></i></span>
+                    <span class="cat-title">Graphic Design</span>
+                    <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Work Compact Row -->
+    <section id="featured-carousel" class="home-section">
+        <div class="section-header">
+            <h2>Featured Work</h2>
+            <p>Graphic Design & Video Editing</p>
+        </div>
+
+        <div class="carousel-wrapper">
+            <!-- Navigation -->
+            <div class="carousel-nav">
+                <button class="nav-arrow prev" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="nav-arrow next" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
+            <div class="carousel-track" id="track">
+
+                <!-- 1. Graphic: Thumbnails -->
+                <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer"
+                    class="carousel-card graphic-card">
+                    <div class="badge behance-badge">Behance</div>
+                    <div class="card-image">
+                        <img src="https://placehold.co/600x800/1a1a1a/ffffff?text=Thumbnails" alt="Thumbnails"
+                            loading="lazy">
+                        <div class="overlay"><span class="overlay-text">View Project</span></div>
+                    </div>
+                </a>
+
+                <!-- 2. Graphic: Photography -->
+                <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer"
+                    class="carousel-card graphic-card">
+                    <div class="badge behance-badge">Behance</div>
+                    <div class="card-image">
+                        <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=Design" alt="Design" loading="lazy">
+                        <div class="overlay"><span class="overlay-text">View Project</span></div>
+                    </div>
+                </a>
+
+                <!-- 3. Video: Cinematic -->
+                <a href="https://www.youtube.com/watch?v=9No-FiEInLA" target="_blank" rel="noopener noreferrer"
+                    class="carousel-card video-card">
+                    <div class="badge youtube-badge">YouTube</div>
+                    <div class="card-image">
+                        <img src="https://img.youtube.com/vi/9No-FiEInLA/maxresdefault.jpg" alt="Cinematic"
+                            loading="lazy">
+                        <div class="overlay"><span class="overlay-text">Watch Video</span></div>
+                    </div>
+                </a>
+
+                <!-- 4. Video: Commercial -->
+                <a href="https://www.youtube.com/watch?v=ScMzIvxBSi4" target="_blank" rel="noopener noreferrer"
+                    class="carousel-card video-card">
+                    <div class="badge youtube-badge">YouTube</div>
+                    <div class="card-image">
+                        <img src="https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg" alt="Commercial"
+                            loading="lazy">
+                        <div class="overlay"><span class="overlay-text">Watch Video</span></div>
+                    </div>
+                </a>
+
+                <!-- CLONES FOR LOOPING -->
+
+                <!-- 1. Clone -->
+                <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer"
+                    class="carousel-card graphic-card">
+                    <div class="badge behance-badge">Behance</div>
+                    <div class="card-image">
+                        <img src="https://placehold.co/600x800/1a1a1a/ffffff?text=Thumbnails" alt="Thumbnails"
+                            loading="lazy">
+                        <div class="overlay"><span class="overlay-text">View Project</span></div>
+                    </div>
+                </a>
+
+                <!-- 2. Clone -->
+                <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer"
+                    class="carousel-card graphic-card">
+                    <div class="badge behance-badge">Behance</div>
+                    <div class="card-image">
+                        <img src="https://placehold.co/600x400/1a1a1a/ffffff?text=Design" alt="Design" loading="lazy">
+                        <div class="overlay"><span class="overlay-text">View Project</span></div>
+                    </div>
+                </a>
+
+                <!-- 3. Clone -->
+                <a href="https://www.youtube.com/watch?v=9No-FiEInLA" target="_blank" rel="noopener noreferrer"
+                    class="carousel-card video-card">
+                    <div class="badge youtube-badge">YouTube</div>
+                    <div class="card-image">
+                        <img src="https://img.youtube.com/vi/9No-FiEInLA/maxresdefault.jpg" alt="Cinematic"
+                            loading="lazy">
+                        <div class="overlay"><span class="overlay-text">Watch Video</span></div>
+                    </div>
+                </a>
+
+                <!-- 4. Clone -->
+                <a href="https://www.youtube.com/watch?v=ScMzIvxBSi4" target="_blank" rel="noopener noreferrer"
+                    class="carousel-card video-card">
+                    <div class="badge youtube-badge">YouTube</div>
+                    <div class="card-image">
+                        <img src="https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg" alt="Commercial"
+                            loading="lazy">
+                        <div class="overlay"><span class="overlay-text">Watch Video</span></div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="home-section">
+        <div class="section-header">
+            <h2>What I Do</h2>
+            <p>Creative services tailored for modern brands</p>
+        </div>
+
+        <div class="services-wrapper">
+            <!-- Graphic Design Service -->
+            <div class="service-card graphic-service">
+                <div class="service-icon">
+                    <i class="fa-solid fa-pen-nib"></i>
+                </div>
+                <h3>Graphic Design</h3>
+                <ul class="service-list">
+                    <li>Social Media Posts</li>
+                    <li>Thumbnails & Banners</li>
+                    <li>Brand Identity</li>
+                    <li>Posters & Ads</li>
+                    <li>Marketing Creatives</li>
+                </ul>
+            </div>
+
+            <!-- Video Editing Service -->
+            <div class="service-card video-service">
+                <div class="service-icon">
+                    <i class="fa-solid fa-film"></i>
+                </div>
+                <h3>Video Editing</h3>
+                <ul class="service-list">
+                    <li>YouTube Editing</li>
+                    <li>Reels & Shorts</li>
+                    <li>Promotional Videos</li>
+                    <li>Color Grading</li>
+                    <li>Motion Graphics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="home-section">
+        <div class="section-header">
+            <h2>Pricing Packages</h2>
+            <p>Flexible plans for different creative needs</p>
+        </div>
+
+        <div class="pricing-container">
+            <!-- Package 1: Basic -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Basic</h3>
+                    <p class="audience">Small creators & startups</p>
+                    <div class="price">$150</div>
+                    <p class="starting-at">Starting at</p>
+                </div>
+                <div class="divider"></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> 3 Graphic Posts OR</li>
+                    <li><i class="fa-solid fa-check"></i> 1 Short Video Edit</li>
+                    <li><i class="fa-solid fa-check"></i> 2 Revisions</li>
+                    <li><i class="fa-solid fa-check"></i> Delivery in 2–3 days</li>
+                </ul>
+                <a href="#contact" class="pricing-btn">Get Started</a>
+            </div>
+
+            <!-- Package 2: Standard (Highlighted) -->
+            <div class="pricing-card featured">
+                <div class="popular-tag">Most Popular</div>
+                <div class="pricing-header">
+                    <h3>Standard</h3>
+                    <p class="audience">Growing brands</p>
+                    <div class="price">$300</div>
+                    <p class="starting-at">Starting at</p>
+                </div>
+                <div class="divider"></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> 6 Graphic Posts OR</li>
+                    <li><i class="fa-solid fa-check"></i> 2 Short Video Edits</li>
+                    <li><i class="fa-solid fa-check"></i> 4 Revisions</li>
+                    <li><i class="fa-solid fa-check"></i> Priority Delivery</li>
+                    <li><i class="fa-solid fa-check"></i> Basic Motion Graphics</li>
+                </ul>
+                <a href="#contact" class="pricing-btn featured-btn">Get Started</a>
+            </div>
+
+            <!-- Package 3: Premium -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Premium</h3>
+                    <p class="audience">Businesses & influencers</p>
+                    <div class="price">$600</div>
+                    <p class="starting-at">Starting at</p>
+                </div>
+                <div class="divider"></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> 12 Graphic Posts OR</li>
+                    <li><i class="fa-solid fa-check"></i> 4 Video Edits</li>
+                    <li><i class="fa-solid fa-check"></i> Unlimited Revisions</li>
+                    <li><i class="fa-solid fa-check"></i> Advanced Motion Graphics</li>
+                    <li><i class="fa-solid fa-check"></i> Fast Delivery</li>
+                    <li><i class="fa-solid fa-check"></i> Dedicated Support</li>
+                </ul>
+                <a href="#contact" class="pricing-btn">Contact Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="home-section">
+        <div class="about-wrapper">
+            <div class="about-content">
+                <div class="section-badge">About Me</div>
+                <h2>Crafting Digital Experiences.</h2>
+                <p class="about-bio">
+                    I'm a multidisciplinary creative specializing in <span>Graphic Design</span> and <span>Video
+                        Editing</span>.
+                    With a passion for storytelling and a keen eye for aesthetics, I help brands and creators turn ideas
+                    into
+                    compelling visual narratives. My work blends technical precision with artistic flair.
+                </p>
+
+                <div class="skills-container">
+                    <h3>My Toolkit</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fa-brands fa-adobe"></i> Photoshop</span>
+                        <span class="skill-tag"><i class="fa-brands fa-adobe"></i> Illustrator</span>
+                        <span class="skill-tag"><i class="fa-brands fa-figma"></i> Figma</span>
+                        <span class="skill-tag"><i class="fa-solid fa-video"></i> Premiere Pro</span>
+                        <span class="skill-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> After Effects</span>
+                        <span class="skill-tag"><i class="fa-solid fa-film"></i> DaVinci Resolve</span>
+                    </div>
+                </div>
+
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Years Exp.</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Clients</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-visual">
+                <div class="visual-card">
+                    <!-- Placeholder for User Image / Creative Graphic -->
+                    <div class="visual-inner">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="home-section">
+        <div class="section-header">
+            <h2>My Journey</h2>
+            <p>Milestones & Roles</p>
+        </div>
+
+        <div class="timeline-wrapper">
+            <div class="timeline-item">
+                <div class="timeline-year">2025</div>
+                <div class="timeline-content">
+                    <h3>Senior Video Editor</h3>
+                    <p class="role-company">Creative Agency</p>
+                    <p class="role-desc">Creating high-end commercials and social content for global brands.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2023</div>
+                <div class="timeline-content">
+                    <h3>Lead Graphic Designer</h3>
+                    <p class="role-company">Tech Startup</p>
+                    <p class="role-desc">Led the rebranding initiative and designed all marketing collateral.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2021</div>
+                <div class="timeline-content">
+                    <h3>Freelance Creative</h3>
+                    <p class="role-company">Self-Employed</p>
+                    <p class="role-desc">Partnered with 20+ clients to deliver custom branding and video edits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="home-section">
+        <div class="section-header">
+            <h2>Client Love</h2>
+            <p>What people are saying</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <p class="testimonial-text">"Transforms abstract ideas into stunning visuals. The attention to detail is
+                    unmatched and the delivery is always on time."</p>
+                <div class="client-info">
+                    <div class="client-avatar">S</div>
+                    <div>
+                        <h4>Sarah Jenkins</h4>
+                        <p>Marketing Director</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <p class="testimonial-text">"Incredible video editing skills. The pacing and transitions were perfect
+                    for our campaign. Highly recommended!"</p>
+                <div class="client-info">
+                    <div class="client-avatar">M</div>
+                    <div>
+                        <h4>Mike Ross</h4>
+                        <p>YouTuber (1M+ Subs)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <p class="testimonial-text">"Professional, creative, and easy to work with. The branding kit exceeded
+                    our expectations entirely."</p>
+                <div class="client-info">
+                    <div class="client-avatar">E</div>
+                    <div>
+                        <h4>Emma Clarke</h4>
+                        <p>Founder, GlowUp</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Appointment Section -->
+    <section id="contact" class="home-section">
+        <div class="section-header">
+            <h2>Let's Collaborate</h2>
+            <p>Ready to start your project? Book an appointment.</p>
+        </div>
+
+        <div class="contact-wrapper">
+            <form id="appointment-form" class="appointment-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="service">Service Type</label>
+                        <select id="service" name="service">
+                            <option value="video-editing">Video Editing</option>
+                            <option value="graphic-design">Graphic Design</option>
+                            <option value="both">Both</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="datetime">Preferred Date & Time</label>
+                        <input type="datetime-local" id="datetime" name="datetime" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Project Details</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell me about your vision..."
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span>Send Request</span>
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+
+            <!-- Social Toggles -->
+            <div class="social-toggles">
+                <a href="https://youtube.com" target="_blank" class="social-link" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://behance.net" target="_blank" class="social-link" aria-label="Behance">
+                    <i class="fa-brands fa-behance"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="social-link" aria-label="Twitter">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>

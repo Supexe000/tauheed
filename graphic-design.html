@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic Design | Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@400;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-text">VIEW</div>
+    </div>
+
+    <!-- Background Logos -->
+    <div id="logo-container"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">PORTFOLIO</a>
+        <div class="nav-links">
+            <a href="graphic-design.html" class="nav-item active">Graphic Design</a>
+            <a href="video-editing.html" class="nav-item">Video Editing</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <h1>Graphic Design</h1>
+        <p>Visual identities, creative composition, and digital art.</p>
+
+        <!-- Filter Categories (Optional) -->
+        <div class="category-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="branding">Branding</button>
+            <button class="filter-btn" data-filter="social">Social Media</button>
+            <button class="filter-btn" data-filter="print">Print</button>
+        </div>
+    </header>
+
+    <!-- Content Grid -->
+    <main>
+        <div class="project-grid graphic-grid">
+            <!-- Project 1 (Behance) -->
+            <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer"
+                class="project-card behance-card" data-category="branding">
+                <div class="behance-badge"><i class="fa-brands fa-behance"></i></div>
+                <div class="card-image">
+                    <!-- Using placeholder with different aspect ratio to test masonry/flow -->
+                    <img src="https://placehold.co/800x1000/1a1a1a/ffffff?text=Brand+Identity" alt="Brand Identity"
+                        loading="lazy">
+                    <div class="overlay">
+                        <span class="overlay-text">View Full Project</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Brand Identity</h3>
+                    <p>Branding • Logo Design</p>
+                </div>
+            </a>
+
+            <!-- Project 2 -->
+            <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer"
+                class="project-card behance-card" data-category="social">
+                <div class="behance-badge"><i class="fa-brands fa-behance"></i></div>
+                <div class="card-image">
+                    <img src="https://placehold.co/800x800/1a1a1a/ffffff?text=Social+Kit" alt="Social Media Kit"
+                        loading="lazy">
+                    <div class="overlay">
+                        <span class="overlay-text">View Full Project</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Social Media Kit</h3>
+                    <p>Social • Layout</p>
+                </div>
+            </a>
+
+            <!-- Project 3 -->
+            <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer"
+                class="project-card behance-card" data-category="print">
+                <div class="behance-badge"><i class="fa-brands fa-behance"></i></div>
+                <div class="card-image">
+                    <!-- Landscape aspect ratio -->
+                    <img src="https://placehold.co/1200x800/1a1a1a/ffffff?text=Packaging" alt="Packaging Design"
+                        loading="lazy">
+                    <div class="overlay">
+                        <span class="overlay-text">View Full Project</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Packaging Design</h3>
+                    <p>Print • 3D Mockup</p>
+                </div>
+            </a>
+
+            <!-- Project 4 -->
+            <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer"
+                class="project-card behance-card" data-category="branding">
+                <div class="behance-badge"><i class="fa-brands fa-behance"></i></div>
+                <div class="card-image">
+                    <img src="https://placehold.co/800x1200/1a1a1a/ffffff?text=Editorial" alt="Editorial"
+                        loading="lazy">
+                    <div class="overlay">
+                        <span class="overlay-text">View Full Project</span>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3>Editorial Lookbook</h3>
+                    <p>Branding • Typography</p>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Portfolio. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
