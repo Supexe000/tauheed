@@ -1,6 +1,81 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ------------------------------------------------------------------
+    // CINEMATIC INTRO
+    // ------------------------------------------------------------------
+    const introOverlay = document.getElementById('intro-overlay');
+    const introVideo = document.getElementById('intro-video');
+    const skipBtn = document.getElementById('skip-intro');
+    const introPlayBtn = document.getElementById('intro-play-btn');
+
+    // Lock Scroll Initially
+    if (introOverlay) {
+        document.body.style.overflow = 'hidden';
+    }
+
+    const finishIntro = () => {
+        if (!introOverlay) return;
+
+        // Check if already finished to avoid double triggers
+        if (introOverlay.classList.contains('hidden')) return;
+
+        // Fade Out
+        introOverlay.classList.add('hidden');
+        document.body.style.overflow = ''; // Unlock Scroll
+
+        // Pause Video to save resources
+        setTimeout(() => {
+            if (introVideo) introVideo.pause();
+            introOverlay.remove(); // Cleanup DOM
+
+            // Trigger Hero Animations manually if needed, 
+            // but ScrollTrigger handles them when in view.
+            ScrollTrigger.refresh();
+
+            // Ensure Hero Video Plays (if not already)
+            const heroVideo = document.getElementById('hero-video');
+            if (heroVideo) {
+                heroVideo.play().catch(() => {
+                    // Autoplay might be blocked if not muted, but it is muted.
+                });
+            }
+        }, 800);
+    };
+
+    if (introVideo) {
+        // When video ends -> Finish
+        introVideo.addEventListener('ended', finishIntro);
+
+        // Attempt Autoplay
+        const playPromise = introVideo.play();
+
+        if (playPromise !== undefined) {
+            playPromise.then(_ => {
+                // Autoplay started!
+            }).catch(error => {
+                // Autoplay was prevented. style UI suitable for interaction
+                console.log("Intro autoplay prevented. Showing play button.");
+                if (introPlayBtn) {
+                    introPlayBtn.style.display = 'flex';
+                    introPlayBtn.addEventListener('click', () => {
+                        introVideo.play();
+                        introPlayBtn.style.display = 'none';
+                    });
+                }
+            });
+        }
+    }
+
+    // Skip Button
+    if (skipBtn) {
+        skipBtn.addEventListener('click', finishIntro);
+    }
+
+    // Fallback Safety Net (in case video hangs or error)
+    // 15 seconds max for intro
+    setTimeout(finishIntro, 15000);
+
+    // ------------------------------------------------------------------
     // CONFIGURATION
     // ------------------------------------------------------------------
     const IS_DESKTOP = window.matchMedia("(min-width: 1025px)").matches;
@@ -69,6 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (target.closest('.social-link')) newText = "FOLLOW";
             else if (target.closest('#submitBtn')) newText = "SEND";
             else if (target.closest('.category-card')) newText = "OPEN";
+            else if (target.closest('.pricing-btn')) newText = "SELECT";
+            else if (target.closest('#skip-intro')) newText = "SKIP";
+            else if (target.closest('.intro-fallback-play')) newText = "PLAY";
             else if (target.closest('input, textarea')) newText = "TYPE";
             else newText = "CLICK";
         }

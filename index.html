@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@400;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Icons -->
@@ -21,6 +21,17 @@
 </head>
 
 <body>
+
+    <!-- Cinematic Intro Overlay -->
+    <div id="intro-overlay">
+        <video id="intro-video" muted playsinline preload="auto">
+            <source src="huhu.mp4" type="video/mp4">
+        </video>
+        <button id="skip-intro" class="skip-btn">Skip Intro <i class="fa-solid fa-forward"></i></button>
+        <div class="intro-fallback-play" id="intro-play-btn" style="display: none;">
+            <i class="fa-solid fa-play"></i>
+        </div>
+    </div>
 
     <!-- Custom Cursor -->
     <div class="custom-cursor">
@@ -47,7 +58,7 @@
             <div class="text-clarity-overlay"></div>
             <!-- Autoplay logic handled in JS for sound support -->
             <video id="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg">
-                <source src="huhu.mp4" type="video/mp4">
+                <source src="hehe.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="video-overlay"></div>
@@ -192,21 +203,6 @@
         </div>
 
         <div class="services-wrapper">
-            <!-- Graphic Design Service -->
-            <div class="service-card graphic-service">
-                <div class="service-icon">
-                    <i class="fa-solid fa-pen-nib"></i>
-                </div>
-                <h3>Graphic Design</h3>
-                <ul class="service-list">
-                    <li>Social Media Posts</li>
-                    <li>Thumbnails & Banners</li>
-                    <li>Brand Identity</li>
-                    <li>Posters & Ads</li>
-                    <li>Marketing Creatives</li>
-                </ul>
-            </div>
-
             <!-- Video Editing Service -->
             <div class="service-card video-service">
                 <div class="service-icon">
@@ -214,11 +210,69 @@
                 </div>
                 <h3>Video Editing</h3>
                 <ul class="service-list">
-                    <li>YouTube Editing</li>
-                    <li>Reels & Shorts</li>
-                    <li>Promotional Videos</li>
-                    <li>Color Grading</li>
-                    <li>Motion Graphics</li>
+                    <li>YouTube Video Editing</li>
+                    <li>Social Media Reels & Shorts</li>
+                    <li>Corporate & Promotional Videos</li>
+                    <li>Wedding Video Editing (Cinematic)</li>
+                    <li>Motion Graphics Integration</li>
+                    <li>Color Correction & Grading</li>
+                    <li>Audio Sync & Sound Design</li>
+                    <li>Multi-Cam Editing</li>
+                    <li>Subtitle & Caption Creation</li>
+                </ul>
+            </div>
+
+            <!-- Graphic Design Service -->
+            <div class="service-card graphic-service">
+                <div class="service-icon">
+                    <i class="fa-solid fa-pen-nib"></i>
+                </div>
+                <h3>Graphic Design</h3>
+                <ul class="service-list">
+                    <li>Social Media Posts & Carousels</li>
+                    <li>Brand Identity Design</li>
+                    <li>Logo Design</li>
+                    <li>Thumbnail Design (YouTube Optimized)</li>
+                    <li>Marketing Banners & Ads</li>
+                    <li>UI/UX Visual Layouts</li>
+                    <li>Poster & Flyer Design</li>
+                </ul>
+            </div>
+
+            <!-- Videography Service (New) -->
+            <div class="service-card videography-service">
+                <div class="service-icon">
+                    <i class="fa-solid fa-video"></i>
+                </div>
+                <h3>Videography</h3>
+                <ul class="service-list">
+                    <li>Wedding Videography (Cinematic)</li>
+                    <li>Event Coverage</li>
+                    <li>Commercial & Corporate Shoots</li>
+                    <li>Product Videography</li>
+                    <li>Social Media Content Creation</li>
+                    <li>Documentary Style Shooting</li>
+                    <li>Short Film Production</li>
+                    <li>Drone Videography</li>
+                </ul>
+            </div>
+
+            <!-- Photography Service (New) -->
+            <div class="service-card photography-service">
+                <div class="service-icon">
+                    <i class="fa-solid fa-camera"></i>
+                </div>
+                <h3>Photography</h3>
+                <ul class="service-list">
+                    <li>Wedding Photography</li>
+                    <li>Event Photography</li>
+                    <li>Product Photography</li>
+                    <li>Fashion Photography</li>
+                    <li>Portrait Photography</li>
+                    <li>Real Estate Photography</li>
+                    <li>Commercial & Brand Shoots</li>
+                    <li>Photo Retouching & Editing</li>
+                    <li>Studio & Outdoor Shoots</li>
                 </ul>
             </div>
         </div>
