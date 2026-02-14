@@ -326,10 +326,37 @@ ul {
     will-change: transform;
 }
 
+/* Global Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    text-align: center;
+    /* Requested Center Alignment */
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+body {
+    line-height: 1.6;
+    /* Comfortable reading */
+}
+
+/* Highlight Utility */
+.highlight,
+.text-accent {
+    color: var(--accent-color);
+}
+
 /* Navigation */
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    /* Center the logo since links are gone */
     align-items: center;
     padding: 2rem 5%;
     position: fixed;
@@ -350,59 +377,17 @@ nav.scrolled {
 .logo {
     font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    /* Slightly larger presence */
     letter-spacing: -1px;
     text-transform: uppercase;
+    color: #fff;
+    /* White base */
+}
+
+.logo span {
     color: var(--accent-color);
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-item {
-    font-family: var(--font-header);
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--secondary-color);
-    transition: color 0.3s;
-    position: relative;
-}
-
-.nav-item:hover,
-.nav-item.active {
-    color: var(--accent-color);
-}
-
-.nav-item.active::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: var(--accent-color);
-    transform: scaleX(1);
-}
-
-.nav-item::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: var(--accent-color);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.nav-item:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
+    /* Potential future use or if logo has span */
 }
 
 /* ------------------------------------------------------------------
@@ -412,22 +397,26 @@ nav.scrolled {
     padding: var(--spacing-md) 5%;
     position: relative;
     background: var(--bg-color);
-    /* Matches homepage */
     overflow: hidden;
 }
 
 .home-section .section-header {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    /* More space */
     display: flex;
     flex-direction: column;
+    align-items: center;
+    /* Center Content */
+    text-align: center;
     gap: 0.5rem;
 }
 
 .home-section .section-header h2 {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    /* Bolder */
     text-transform: uppercase;
-    color: var(--accent-color);
+    color: #fff;
 }
 
 .home-section .section-header p {
