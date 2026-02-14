@@ -817,6 +817,81 @@ main {
     transform: translateY(0);
 }
 
+/* ------------------------------------------------------------------
+   RESPONSIVE FORM & LAYOUT (Mobile)
+   ------------------------------------------------------------------ */
+@media (max-width: 768px) {
+
+    /* Force Single Column for Grids */
+    .video-grid,
+    .graphic-grid,
+    .testimonials-grid,
+    .form-grid,
+    .services-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+
+    .pricing-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    /* Mobile Typography & Spacing */
+    p,
+    .testimonial-text {
+        font-size: 1rem !important;
+        /* Ensure readability */
+        line-height: 1.6;
+    }
+
+    .section-header h2 {
+        font-size: 2.2rem;
+        /* Adjusted for mobile */
+    }
+
+    .home-section {
+        padding: 4rem 5%;
+        /* Increased padding */
+    }
+}
+
+/* ------------------------------------------------------------------
+   FORM ENHANCEMENTS
+   ------------------------------------------------------------------ */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* ------------------------------------------------------------------
+   SOCIAL TOGGLES
+   ------------------------------------------------------------------ */
+.social-link {
+    color: var(--secondary-color);
+    transition: all 0.3s ease;
+    opacity: 0;
+    /* JS will handle entrance */
+}
+
+.social-link:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.social-link:active {
+    transform: scale(0.95);
+}
+
 /* Touch Active State */
 .project-card:active,
 .carousel-card:active {

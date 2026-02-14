@@ -196,31 +196,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // ------------------------------------------------------------------
     gsap.registerPlugin(ScrollTrigger);
 
-    // Hero Fade In
+    // Hero Animation (Fade + Slide Up)
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
         gsap.from(heroTitle.children, {
-            y: 100,
+            y: 50,
             opacity: 0,
             duration: 1.2,
-            stagger: 0.1,
-            ease: "power4.out"
+            stagger: 0.15,
+            ease: "power3.out"
         });
 
         gsap.from('.hero-subtitle', {
-            y: 20,
+            y: 30,
             opacity: 0,
             duration: 1,
-            delay: 0.5,
+            delay: 0.4,
             ease: "power3.out"
         });
 
         gsap.from('.category-card', {
-            y: 50,
+            y: 40,
             opacity: 0,
             duration: 0.8,
-            delay: 0.8,
-            stagger: 0.2,
+            delay: 0.6,
+            stagger: 0.15,
             ease: "power3.out"
         });
     }
@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Testimonials Animation
+    // Testimonials Animation (Staggered)
     const testSection = document.getElementById('testimonials');
     if (testSection) {
         gsap.from(testSection.querySelector('.section-header'), {
@@ -328,9 +328,14 @@ document.addEventListener('DOMContentLoaded', () => {
             y: 30, opacity: 0, duration: 0.8, ease: "power3.out"
         });
 
-        gsap.from(testSection.querySelectorAll('.testimonial-card'), {
+        const testimonials = testSection.querySelectorAll('.testimonial-card');
+        gsap.from(testimonials, {
             scrollTrigger: { trigger: testSection, start: "top 75%" },
-            y: 50, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power3.out"
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2, /* 0.2s difference per item */
+            ease: "power3.out"
         });
     }
 
@@ -342,9 +347,36 @@ document.addEventListener('DOMContentLoaded', () => {
             y: 30, opacity: 0, duration: 0.8, ease: "power3.out"
         });
 
-        gsap.from(carouselSection.querySelector('.carousel-container'), {
+        gsap.from(carouselSection.querySelector('.carousel-wrapper'), {
             scrollTrigger: { trigger: carouselSection, start: "top 75%" },
-            opacity: 0, duration: 1.5, ease: "power2.out"
+            opacity: 0, y: 30, duration: 1, ease: "power3.out"
+        });
+    }
+
+    // Appointment Form Animation
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+        gsap.from(contactSection.querySelector('.section-header'), {
+            scrollTrigger: { trigger: contactSection, start: "top 80%" },
+            y: 30, opacity: 0, duration: 0.8, ease: "power3.out"
+        });
+
+        gsap.from('.appointment-form', {
+            scrollTrigger: { trigger: '#contact', start: "top 70%" },
+            y: 50,
+            opacity: 0,
+            duration: 0.9,
+            ease: "power3.out"
+        });
+
+        // Social Toggles Entrance
+        gsap.to('.social-link', {
+            scrollTrigger: { trigger: '.social-toggles', start: "top 90%" },
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "back.out(1.7)"
         });
     }
 
