@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ------------------------------------------------------------------
-    // CINEMATIC INTRO
+    // ------------------------------------------------------------------
+    // CINEMATIC INTRO (Landing Hero)
     // ------------------------------------------------------------------
     const introOverlay = document.getElementById('intro-overlay');
-    const introVideo = document.getElementById('intro-video');
+    const landingHero = document.getElementById('landingHero');
     const skipBtn = document.getElementById('skip-intro');
     const introPlayBtn = document.getElementById('intro-play-btn');
 
@@ -25,40 +26,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Pause Video to save resources
         setTimeout(() => {
-            if (introVideo) introVideo.pause();
+            if (landingHero) landingHero.pause();
             introOverlay.remove(); // Cleanup DOM
 
             // Trigger Hero Animations manually if needed, 
             // but ScrollTrigger handles them when in view.
             ScrollTrigger.refresh();
 
-            // Ensure Hero Video Plays (if not already)
-            const heroVideo = document.getElementById('hero-video');
-            if (heroVideo) {
-                heroVideo.play().catch(() => {
+            // Ensure Intro Video (Background) Plays
+            const introVideo = document.getElementById('introVideo');
+            if (introVideo) {
+                introVideo.play().catch(() => {
                     // Autoplay might be blocked if not muted, but it is muted.
                 });
             }
         }, 800);
     };
 
-    if (introVideo) {
+    if (landingHero) {
         // When video ends -> Finish
-        introVideo.addEventListener('ended', finishIntro);
+        landingHero.addEventListener('ended', finishIntro);
 
         // Attempt Autoplay
-        const playPromise = introVideo.play();
+        const playPromise = landingHero.play();
 
         if (playPromise !== undefined) {
             playPromise.then(_ => {
                 // Autoplay started!
             }).catch(error => {
                 // Autoplay was prevented. style UI suitable for interaction
-                console.log("Intro autoplay prevented. Showing play button.");
+                console.log("Landing Hero autoplay prevented. Showing play button.");
                 if (introPlayBtn) {
                     introPlayBtn.style.display = 'flex';
                     introPlayBtn.addEventListener('click', () => {
-                        introVideo.play();
+                        landingHero.play();
                         introPlayBtn.style.display = 'none';
                     });
                 }

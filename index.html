@@ -22,12 +22,13 @@
 
 <body>
 
-    <!-- Cinematic Intro Overlay -->
+    <!-- Cinematic Overlay (Landing Hero) -->
     <div id="intro-overlay">
-        <video id="intro-video" muted playsinline preload="auto">
+        <!-- Landing Hero Video: Plays First -->
+        <video id="landingHero" autoplay muted playsinline preload="auto">
             <source src="huhu.mp4" type="video/mp4">
         </video>
-        <button id="skip-intro" class="skip-btn">Skip Intro <i class="fa-solid fa-forward"></i></button>
+        <button id="skip-intro" class="skip-btn">Skip Video <i class="fa-solid fa-forward"></i></button>
         <div class="intro-fallback-play" id="intro-play-btn" style="display: none;">
             <i class="fa-solid fa-play"></i>
         </div>
@@ -48,13 +49,13 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Intro Video) -->
     <section id="hero">
-        <!-- Dynamic Video Background -->
+        <!-- Intro Video: Plays Second (Background) -->
         <div id="hero-background">
             <div class="text-clarity-overlay"></div>
             <!-- Autoplay logic handled in JS for sound support -->
-            <video id="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg">
+            <video id="introVideo" autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg">
                 <source src="hehe.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -80,6 +81,59 @@
                     <span class="cat-title">Graphic Design</span>
                     <span class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></span>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="home-section">
+        <div class="about-wrapper">
+            <div class="about-content">
+                <div class="section-badge">About Me</div>
+                <h2>Crafting Digital <span class="highlight">Experiences</span>.</h2>
+                <p class="about-bio">
+                    I'm a multidisciplinary creative specializing in <span>Graphic Design</span> and <span>Video
+                        Editing</span>.
+                    With a passion for storytelling and a keen eye for aesthetics, I help brands and creators turn ideas
+                    into
+                    compelling visual narratives. My work blends technical precision with artistic flair.
+                </p>
+
+                <div class="skills-container">
+                    <h3>My <span class="highlight">Toolkit</span></h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fa-brands fa-adobe"></i> Photoshop</span>
+                        <span class="skill-tag"><i class="fa-brands fa-adobe"></i> Illustrator</span>
+                        <span class="skill-tag"><i class="fa-brands fa-figma"></i> Figma</span>
+                        <span class="skill-tag"><i class="fa-solid fa-video"></i> Premiere Pro</span>
+                        <span class="skill-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> After Effects</span>
+                        <span class="skill-tag"><i class="fa-solid fa-film"></i> DaVinci Resolve</span>
+                    </div>
+                </div>
+
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number highlight">5+</span>
+                        <span class="stat-label">Years Exp.</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number highlight">100+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number highlight">50+</span>
+                        <span class="stat-label">Clients</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-visual">
+                <div class="visual-card">
+                    <!-- Placeholder for User Image / Creative Graphic -->
+                    <div class="visual-inner">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -343,58 +397,7 @@
         </div>
     </section>
 
-    <!-- About Me Section -->
-    <section id="about" class="home-section">
-        <div class="about-wrapper">
-            <div class="about-content">
-                <div class="section-badge">About Me</div>
-                <h2>Crafting Digital Experiences.</h2>
-                <p class="about-bio">
-                    I'm a multidisciplinary creative specializing in <span>Graphic Design</span> and <span>Video
-                        Editing</span>.
-                    With a passion for storytelling and a keen eye for aesthetics, I help brands and creators turn ideas
-                    into
-                    compelling visual narratives. My work blends technical precision with artistic flair.
-                </p>
 
-                <div class="skills-container">
-                    <h3>My Toolkit</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag"><i class="fa-brands fa-adobe"></i> Photoshop</span>
-                        <span class="skill-tag"><i class="fa-brands fa-adobe"></i> Illustrator</span>
-                        <span class="skill-tag"><i class="fa-brands fa-figma"></i> Figma</span>
-                        <span class="skill-tag"><i class="fa-solid fa-video"></i> Premiere Pro</span>
-                        <span class="skill-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> After Effects</span>
-                        <span class="skill-tag"><i class="fa-solid fa-film"></i> DaVinci Resolve</span>
-                    </div>
-                </div>
-
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Years Exp.</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100+</span>
-                        <span class="stat-label">Projects</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Clients</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="about-visual">
-                <div class="visual-card">
-                    <!-- Placeholder for User Image / Creative Graphic -->
-                    <div class="visual-inner">
-                        <i class="fa-solid fa-user-astronaut"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Experience Section -->
     <section id="experience" class="home-section">
