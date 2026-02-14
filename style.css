@@ -375,19 +375,22 @@ nav.scrolled {
 }
 
 .logo {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 1.8rem;
-    /* Slightly larger presence */
-    letter-spacing: -1px;
-    text-transform: uppercase;
-    color: #fff;
-    /* White base */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.logo span {
-    color: var(--accent-color);
-    /* Potential future use or if logo has span */
+#nav-logo {
+    height: 85px;
+    /* Increased further */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+#nav-logo:hover {
+    transform: scale(1.05);
+    /* Subtle scale on hover */
 }
 
 /* ------------------------------------------------------------------
@@ -455,7 +458,105 @@ nav.scrolled {
     /* Chrome/Safari */
 }
 
-/* COMPACT CARD */
+/* Navigation Buttons */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 20;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.nav-arrow:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 5px 15px rgba(253, 76, 17, 0.3);
+}
+
+.prev {
+    left: -20px;
+    /* In the padding area */
+}
+
+.next {
+    right: -20px;
+    /* In the padding area */
+}
+
+@media (max-width: 768px) {
+    .nav-arrow {
+        display: none;
+        /* Hide on mobile to prefer swipe */
+    }
+}
+
+/* Navigation Container (Overlay) */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    /* Zero height to not affect layout */
+    z-index: 20;
+    pointer-events: none;
+    /* Pass clicks through */
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    /* Inset slightly if needed, or 0 */
+}
+
+.nav-arrow {
+    pointer-events: auto;
+    /* Enable clicks on buttons */
+    /* Handled by .prev/.next specific styles */
+    position: relative;
+    /* Relative to flex container or absolute */
+}
+
+/* Reset individual positioning since flex handles L/R separation */
+.prev {
+    left: auto;
+    transform: translateY(-50%);
+}
+
+.next {
+    right: auto;
+    transform: translateY(-50%);
+}
+
+/* Adjust specific spacing */
+.carousel-wrapper {
+    /* Ensure relative positioning for nav */
+    padding: 0 40px;
+    /* Add horizontal padding to make room for arrows inside */
+}
+
+.nav-arrow.prev {
+    margin-left: -55px;
+}
+
+/* Pull into padding */
+.nav-arrow.next {
+    margin-right: -55px;
+}
+
+/* Pull into padding */
+
 .carousel-card {
     /* 
        Desktop: 4 cards visible. 

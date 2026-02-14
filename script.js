@@ -234,6 +234,64 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(raf);
 
     // ------------------------------------------------------------------
+    // FEATURED CAROUSEL
+    // ------------------------------------------------------------------
+    const track = document.getElementById('track');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (track && prevBtn && nextBtn) {
+        // Scroll 1 full view width (responsive)
+        const getScrollAmount = () => track.clientWidth * 0.9; // 90% to show peek or full
+
+        const handleScroll = (direction) => {
+            const current = track.scrollLeft;
+            const maxScroll = track.scrollWidth - track.clientWidth;
+            const amount = getScrollAmount();
+
+            let target;
+
+            if (direction === 'next') {
+                target = current + amount;
+                // Loop to start if at end
+                if (Math.ceil(current) >= maxScroll - 5) {
+                    target = 0;
+                }
+            } else {
+                target = current - amount;
+                // Loop to end if at start
+                if (current <= 5) {
+                    target = maxScroll;
+                }
+            }
+
+            track.scrollTo({
+                left: target,
+                behavior: 'smooth'
+            });
+        };
+
+        nextBtn.addEventListener('click', () => handleScroll('next'));
+        prevBtn.addEventListener('click', () => handleScroll('prev'));
+
+        // Optional: Autoplay
+        let autoPlay = setInterval(() => handleScroll('next'), 6000);
+        const pause = () => clearInterval(autoPlay);
+        const resume = () => {
+            clearInterval(autoPlay);
+            autoPlay = setInterval(() => handleScroll('next'), 6000);
+        };
+
+        track.addEventListener('mouseenter', pause);
+        track.addEventListener('touchstart', pause, { passive: true });
+        track.addEventListener('mouseleave', resume);
+
+        // Buttons should also pause
+        nextBtn.addEventListener('mouseenter', pause);
+        prevBtn.addEventListener('mouseenter', pause);
+    }
+
+    // ------------------------------------------------------------------
     // RIPPLE EFFECT (Mobile)
     // ------------------------------------------------------------------
     document.addEventListener('click', (e) => {
@@ -505,34 +563,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ------------------------------------------------------------------
     // ------------------------------------------------------------------
     // ------------------------------------------------------------------
-    // CAROUSEL LOGIC (Compact Native Scroll)
-    // ------------------------------------------------------------------
-    const track = document.getElementById('track');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    if (track && prevBtn && nextBtn) {
-        // Scroll amount: width of one card + gap (approx 300px)
-        // We can dynamically get it from the first card
-        const getScrollAmount = () => {
-            const card = track.querySelector('.carousel-card');
-            return card ? card.offsetWidth + 20 : 300;
-        };
-
-        nextBtn.addEventListener('click', () => {
-            track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-        });
-
-        prevBtn.addEventListener('click', () => {
-            track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-        });
-
-        // Optional: Auto-scroll that just nudges or resets?
-        // For "Compact Row", usually manual scroll is preferred. 
-        // User asked for "Horizontal scroll smooth". Native is best.
-        // "Optional infinite loop" - Native scroll doesn't loop easily. 
-        // We will stick to finite smooth scroll which is standard for "Featured Work" rows (like Netflix/YouTube).
-    }
+    // (Carousel logic moved to line 236)
 
     // ------------------------------------------------------------------
     // BACKGROUND LOGOS (Re-use existing logic)
