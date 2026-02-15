@@ -665,4 +665,34 @@ document.addEventListener('DOMContentLoaded', () => {
         heroVideo.muted = true; // Ensure muted
         heroVideo.playbackRate = 0.8; // Cinematic slow motion
     }
+    /* ------------------------------------------------------------------
+       MOBILE MENU TOGGLE
+       ------------------------------------------------------------------ */
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-link');
+
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+
+            // Toggle body scroll
+            if (navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu when a link is clicked
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
 });

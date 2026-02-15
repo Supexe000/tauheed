@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zain Zahid | Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Specific Page Overrides */
+        .profile-hero {
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #000;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(253, 76, 17, 0.05), transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: translate(-25%, -25%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-25%, -25%) rotate(360deg);
+            }
+        }
+
+        .profile-name {
+            font-size: clamp(3rem, 9vw, 7rem);
+            margin-bottom: 0.5rem;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-role {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            color: #888;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-bio {
+            max-width: 650px;
+            margin: 0 auto;
+            color: #eee;
+            line-height: 1.6;
+            font-size: 1.15rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1rem;
+            padding: 4rem 2%;
+        }
+
+        .work-item {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            filter: grayscale(100%);
+            transition: filter 0.5s;
+        }
+
+        .work-item:hover {
+            filter: grayscale(0%);
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .work-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .work-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s;
+        }
+
+        .work-item:hover .work-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-minimal {
+            text-align: center;
+            padding: 8rem 1rem;
+            background: #0d0d0d;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 3rem;
+            background: #fff;
+            color: #000;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: 2px solid #fff;
+        }
+
+        .contact-btn:hover {
+            background: transparent;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-text">HIRE ME</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Portfolio Logo" id="nav-logo"></a>
+        </div>
+
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="tauheed-hamza.html" class="nav-link">Tauheed Hamza</a>
+            <a href="salman-zain.html" class="nav-link">Salman Zain</a>
+            <a href="zain-zahid.html" class="nav-link active" style="color: var(--accent-color);">Zain Zahid</a>
+        </div>
+    </nav>
+
+    <!-- Profile Hero -->
+    <section class="profile-hero">
+        <div class="container">
+            <h1 class="profile-name">Zain Zahid</h1>
+            <p class="profile-role">Visual Artist & Editor</p>
+            <p class="profile-bio">
+                Crafting stories through lens and timeline.
+                Specializing in abstract visuals, complex compositing, and narrative-driven edits.
+            </p>
+        </div>
+    </section>
+
+    <!-- Detailed Work / Featured -->
+    <section class="work-grid">
+        <!-- Placeholder 1 -->
+        <div class="work-item">
+            <img src="https://placehold.co/1200x900/111/fff?text=Abstract+Art" alt="Project 1">
+            <div class="work-overlay">
+                <h3>Reality Distortion</h3>
+                <p>Digital Art / VFX</p>
+            </div>
+        </div>
+        <!-- Placeholder 2 -->
+        <div class="work-item">
+            <img src="https://placehold.co/1200x900/222/fff?text=Music+Video" alt="Project 2">
+            <div class="work-overlay">
+                <h3>Midnight Vibe</h3>
+                <p>Music Video Production</p>
+            </div>
+        </div>
+        <!-- Placeholder 3 -->
+        <div class="work-item">
+            <img src="https://placehold.co/1200x900/333/fff?text=Documentary" alt="Project 3">
+            <div class="work-overlay">
+                <h3>Urban Stories</h3>
+                <p>Documentary Editing</p>
+            </div>
+        </div>
+        <!-- Placeholder 4 -->
+        <div class="work-item">
+            <img src="https://placehold.co/1200x900/333/fff?text=Photography" alt="Project 4">
+            <div class="work-overlay">
+                <h3>Street Focus</h3>
+                <p>Photography Series</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimal Contact -->
+    <section class="contact-minimal">
+        <h2>Let's Collaborate</h2>
+        <p style="color: #666; margin-top: 1rem;">Available for freelance projects.</p>
+        <a href="mailto:contact@example.com" class="contact-btn">Contact Me</a>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // Page specific
+        gsap.from(".profile-name", { opacity: 0, scale: 0.8, duration: 1.5, ease: "power2.out" });
+        gsap.from(".profile-role", { opacity: 0, y: 20, duration: 1, delay: 0.5, ease: "power2.out" });
+        gsap.from(".profile-bio", { opacity: 0, y: 20, duration: 1, delay: 0.8, ease: "power2.out" });
+
+        gsap.utils.toArray('.work-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: { trigger: item, start: "top 90%" },
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.1,
+                ease: "power3.out"
+            });
+        });
+    </script>
+</body>
+
+</html>

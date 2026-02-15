@@ -355,8 +355,7 @@ body {
 /* Navigation */
 nav {
     display: flex;
-    justify-content: center;
-    /* Center the logo since links are gone */
+    justify-content: space-between;
     align-items: center;
     padding: 2rem 5%;
     position: fixed;
@@ -377,7 +376,68 @@ nav.scrolled {
 .logo {
     display: flex;
     align-items: center;
-    justify-content: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Mobile Nav - Simple Stack/Wrap */
+@media (max-width: 900px) {
+    nav {
+        flex-direction: column;
+        padding: 1rem 5%;
+        background: rgba(13, 13, 13, 0.95);
+        /* Ensure background on mobile */
+    }
+
+    .logo {
+        margin-bottom: 1rem;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
 }
 
 #nav-logo {
@@ -2065,5 +2125,144 @@ footer {
     to {
         transform: scale(4);
         opacity: 0;
+    }
+}
+
+/* ------------------------------------------------------------------
+   MOBILE MENU & LAYOUT FIXES (Override)
+   ------------------------------------------------------------------ */
+
+/* Hamburger Button */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.mobile-menu-btn .bar {
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Nav Toggle State */
+.mobile-menu-btn.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-btn.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mobile Media Query Override */
+@media (max-width: 900px) {
+    .mobile-menu-btn {
+        display: flex;
+        /* Show Hamburger */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #0d0d0d;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+        /* Slide In */
+    }
+
+    .nav-link {
+        font-size: 1.5rem;
+        /* Larger for touch */
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links.active .nav-link {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.2s;
+        /* Stagger effect handled generally or via JS, but CSS delay works nicely if we add nth-child */
+    }
+
+    /* Stagger delays for links */
+    .nav-links.active .nav-link:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    .nav-links.active .nav-link:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    .nav-links.active .nav-link:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    .nav-links.active .nav-link:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+
+    /* LAYOUT FIXES: Force Stacking & Visibility */
+
+    /* Pricing Container */
+    .pricing-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2rem !important;
+    }
+
+    .pricing-card {
+        width: 100% !important;
+        max-width: 400px !important;
+    }
+
+    /* About Visual - MUST BE VISIBLE */
+    .about-wrapper {
+        flex-direction: column !important;
+    }
+
+    .about-visual {
+        display: flex !important;
+        width: 100% !important;
+        max-width: 350px !important;
+        margin: 0 auto !important;
+    }
+
+    /* Grids */
+    .video-grid,
+    .graphic-grid,
+    .testimonials-grid,
+    .timeline-wrapper,
+    .services-wrapper {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Ensure card info is visible */
+    .card-info {
+        display: block !important;
     }
 }

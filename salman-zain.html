@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salman Zain | Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Specific Page Overrides */
+        .profile-hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.5), rgba(13, 13, 13, 1));
+            padding-top: 80px;
+        }
+
+        .profile-name {
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin-bottom: 1rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .profile-role {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .profile-bio {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #ccc;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 5%;
+        }
+
+        .work-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .work-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .work-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .work-item:hover .work-overlay {
+            opacity: 1;
+        }
+
+        .contact-minimal {
+            text-align: center;
+            padding: 6rem 1rem;
+            background: #111;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 3rem;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-text">HIRE ME</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Portfolio Logo" id="nav-logo"></a>
+        </div>
+
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="tauheed-hamza.html" class="nav-link">Tauheed Hamza</a>
+            <a href="salman-zain.html" class="nav-link active" style="color: var(--accent-color);">Salman Zain</a>
+            <a href="zain-zahid.html" class="nav-link">Zain Zahid</a>
+        </div>
+    </nav>
+
+    <!-- Profile Hero -->
+    <section class="profile-hero">
+        <div class="container">
+            <h1 class="profile-name">Salman Zain</h1>
+            <p class="profile-role">Creative Director & Graphic Designer</p>
+            <p class="profile-bio">
+                Bringing brands to life with stunning visuals and strategic design.
+                From brand identity to digital marketing, I craft experiences that resonate.
+            </p>
+        </div>
+    </section>
+
+    <!-- Detailed Work / Featured -->
+    <section class="work-grid">
+        <!-- Placeholder 1 -->
+        <div class="work-item">
+            <img src="https://placehold.co/1920x1080/1a1a1a/ffffff?text=Brand+Identity" alt="Project 1">
+            <div class="work-overlay">
+                <h3>Global Rebrand</h3>
+                <p>Identity / Strategy</p>
+            </div>
+        </div>
+        <!-- Placeholder 2 -->
+        <div class="work-item">
+            <img src="https://placehold.co/1920x1080/2a2a2a/ffffff?text=UI+Design" alt="Project 2">
+            <div class="work-overlay">
+                <h3>App Interface</h3>
+                <p>UX / UI Design</p>
+            </div>
+        </div>
+        <!-- Placeholder 3 -->
+        <div class="work-item">
+            <img src="https://placehold.co/1920x1080/333333/ffffff?text=Ad+Campaign" alt="Project 3">
+            <div class="work-overlay">
+                <h3>Summer Campaign</h3>
+                <p>Digital Marketing</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimal Contact -->
+    <section class="contact-minimal">
+        <h2>Have a vision?</h2>
+        <p style="color: #888; margin-top: 1rem;">Let's build something extraordinary.</p>
+        <a href="mailto:contact@example.com" class="contact-btn">Get In Touch</a>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // Page specific
+        gsap.from(".profile-name", { y: -50, opacity: 0, duration: 1.2, ease: "power4.out" });
+        gsap.from(".profile-role", { y: 20, opacity: 0, duration: 1, delay: 0.3, ease: "power3.out" });
+        gsap.from(".profile-bio", { scale: 0.95, opacity: 0, duration: 1, delay: 0.5, ease: "power3.out" });
+        gsap.from(".work-item", {
+            scale: 0.9,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            delay: 0.6,
+            ease: "back.out(1.2)",
+            scrollTrigger: {
+                trigger: ".work-grid",
+                start: "top 80%"
+            }
+        });
+    </script>
+</body>
+
+</html>
