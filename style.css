@@ -777,8 +777,11 @@ nav.scrolled {
 
 @media (max-width: 768px) {
     #hero-background video {
-        object-fit: contain;
-        /* Fit whole video on mobile without cropping */
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        /* Force full coverage (9:16 visual) */
+        object-position: center;
     }
 }
 
