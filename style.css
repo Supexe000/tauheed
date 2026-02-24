@@ -2326,9 +2326,9 @@ footer {
     flex: 0.8;
 }
 
-/* Header: badge + heading + intro */
+/* Header: badge + heading + intro — centered as requested */
 .member-about-header {
-    text-align: left;
+    text-align: center;
     max-width: 100%;
 }
 
@@ -2379,14 +2379,14 @@ footer {
     font-size: 1.3rem;
     color: #fff;
     margin-bottom: 1.2rem;
-    text-align: left;
+    text-align: center;
 }
 
 .member-skills-block .skill-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 /* Stats block */
@@ -2792,8 +2792,8 @@ nav .nav-links {
 
 .about-profile-img {
     width: 100%;
-    height: 420px;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     border-radius: 20px;
     display: block;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
@@ -2822,6 +2822,6 @@ nav .nav-links {
     }
 
     .about-profile-img {
-        height: 300px;
+        height: auto;
     }
 }
