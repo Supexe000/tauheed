@@ -134,26 +134,37 @@
         <div class="logo">
             <a href="index.html"><img src="logo.png" alt="Portfolio Logo" id="nav-logo"></a>
         </div>
-
-        <button class="mobile-menu-btn" aria-label="Toggle Menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="tauheed-hamza.html" class="nav-link">Tauheed Hamza</a>
-            <a href="salman-zain.html" class="nav-link active" style="color: var(--accent-color);">Salman Zain</a>
-            <a href="zain-zahid.html" class="nav-link">Zain Zahid</a>
-        </div>
+        <button class="menu-btn" id="menuBtn" aria-label="Open Menu">Menu <i class="fa-solid fa-bars"></i></button>
     </nav>
+
+    <!-- Fullscreen Overlay Menu -->
+    <div id="fullscreen-menu" class="fullscreen-menu" aria-hidden="true">
+        <button class="menu-close" id="menuClose" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
+        <nav class="overlay-nav">
+            <a href="index.html" class="menu-link">Home</a>
+            <a href="index.html#about-tauheed" class="menu-link">About</a>
+            <a href="index.html#featured-carousel" class="menu-link">Featured Work</a>
+            <a href="index.html#experience" class="menu-link">My Journey</a>
+            <a href="index.html#contact" class="menu-link">Contact</a>
+        </nav>
+        <div class="menu-footer">
+            <a href="tauheed-hamza.html" class="menu-profile-link">Tauheed Hamza</a>
+            <a href="salman-zain.html" class="menu-profile-link"
+                style="color: var(--accent-color); border-color: var(--accent-color);">Salman Zain</a>
+            <a href="zain-zahid.html" class="menu-profile-link">Zain Zahid</a>
+            <a href="hamza-rajput.html" class="menu-profile-link">Hamza Rajput</a>
+        </div>
+    </div>
 
     <!-- Profile Hero -->
     <section class="profile-hero">
         <div class="container">
+            <div class="about-profile-img-wrap" style="margin-bottom: 2rem;">
+                <img src="images/salman.webp" alt="Salman Zain" class="about-profile-img" loading="lazy" width="150"
+                    height="150" style="margin: 0 auto; display: block;">
+            </div>
             <h1 class="profile-name">Salman Zain</h1>
-            <p class="profile-role">Creative Director & Graphic Designer</p>
+            <p class="profile-role">Creative Director & Brand Strategist</p>
             <p class="profile-bio">
                 Bringing brands to life with stunning visuals and strategic design.
                 From brand identity to digital marketing, I craft experiences that resonate.

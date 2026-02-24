@@ -47,20 +47,26 @@
         <div class="logo">
             <img src="logo.png" alt="Portfolio Logo" id="nav-logo">
         </div>
-
-        <button class="mobile-menu-btn" aria-label="Toggle Menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="tauheed-hamza.html" class="nav-link">Tauheed Hamza</a>
-            <a href="salman-zain.html" class="nav-link">Salman Zain</a>
-            <a href="zain-zahid.html" class="nav-link">Zain Zahid</a>
-        </div>
+        <button class="menu-btn" id="menuBtn" aria-label="Open Menu">Menu <i class="fa-solid fa-bars"></i></button>
     </nav>
+
+    <!-- Fullscreen Overlay Menu -->
+    <div id="fullscreen-menu" class="fullscreen-menu" aria-hidden="true">
+        <button class="menu-close" id="menuClose" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
+        <nav class="overlay-nav">
+            <a href="#hero" class="menu-link" data-section="hero">Home</a>
+            <a href="#about-tauheed" class="menu-link" data-section="about-tauheed">About</a>
+            <a href="#featured-carousel" class="menu-link" data-section="featured-carousel">Featured Work</a>
+            <a href="#experience" class="menu-link" data-section="experience">My Journey</a>
+            <a href="#contact" class="menu-link" data-section="contact">Contact</a>
+        </nav>
+        <div class="menu-footer">
+            <a href="tauheed-hamza.html" class="menu-profile-link">Tauheed Hamza</a>
+            <a href="salman-zain.html" class="menu-profile-link">Salman Zain</a>
+            <a href="zain-zahid.html" class="menu-profile-link">Zain Zahid</a>
+            <a href="hamza-rajput.html" class="menu-profile-link">Hamza Rajput</a>
+        </div>
+    </div>
 
     <!-- Hero Section (Intro Video) -->
     <section id="hero">
@@ -87,58 +93,7 @@
         </div>
     </section>
 
-    <!-- About Me Section -->
-    <section id="about" class="home-section">
-        <div class="about-wrapper">
-            <div class="about-content">
-                <div class="section-badge">About Me</div>
-                <h2>Crafting Digital <span class="highlight">Experiences</span>.</h2>
-                <p class="about-bio">
-                    I'm a multidisciplinary creative specializing in <span>Graphic Design</span> and <span>Video
-                        Editing</span>.
-                    With a passion for storytelling and a keen eye for aesthetics, I help brands and creators turn ideas
-                    into
-                    compelling visual narratives. My work blends technical precision with artistic flair.
-                </p>
 
-                <div class="skills-container">
-                    <h3>My <span class="highlight">Toolkit</span></h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag"><i class="fa-brands fa-adobe"></i> Photoshop</span>
-                        <span class="skill-tag"><i class="fa-brands fa-adobe"></i> Illustrator</span>
-                        <span class="skill-tag"><i class="fa-brands fa-figma"></i> Figma</span>
-                        <span class="skill-tag"><i class="fa-solid fa-video"></i> Premiere Pro</span>
-                        <span class="skill-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> After Effects</span>
-                        <span class="skill-tag"><i class="fa-solid fa-film"></i> DaVinci Resolve</span>
-                    </div>
-                </div>
-
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <span class="stat-number highlight">5+</span>
-                        <span class="stat-label">Years Exp.</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number highlight">100+</span>
-                        <span class="stat-label">Projects</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number highlight">50+</span>
-                        <span class="stat-label">Clients</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="about-visual">
-                <div class="visual-card">
-                    <!-- Placeholder for User Image / Creative Graphic -->
-                    <div class="visual-inner">
-                        <i class="fa-solid fa-user-astronaut"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Featured Work Compact Row -->
     <section id="featured-carousel" class="home-section">
@@ -399,7 +354,255 @@
         </div>
     </section>
 
+    <!-- ============================================================ -->
+    <!-- ABOUT SECTIONS (3 Members)                                   -->
+    <!-- ============================================================ -->
 
+    <!-- About: Tauheed Hamza -->
+    <section id="about-tauheed" class="home-section member-about-section">
+        <div class="member-about-inner">
+            <div class="about-text fade-in-up">
+                <div class="member-about-header">
+                    <div class="section-badge">About Me</div>
+                    <h2>Tauheed <span class="highlight">Hamza</span></h2>
+                    <p class="member-intro">A multidisciplinary creative specializing in Graphic Design and Video
+                        Editing.
+                        With a passion for storytelling and a keen eye for aesthetics, I help brands and creators turn
+                        ideas
+                        into compelling visual narratives — blending technical precision with artistic flair.</p>
+                </div>
+
+                <div class="member-about-body">
+                    <div class="member-skills-block">
+                        <h3>My <span class="highlight">Toolkit</span></h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag"><i class="fa-brands fa-adobe"></i> Photoshop</span>
+                            <span class="skill-tag"><i class="fa-brands fa-adobe"></i> Illustrator</span>
+                            <span class="skill-tag"><i class="fa-brands fa-figma"></i> Figma</span>
+                            <span class="skill-tag"><i class="fa-solid fa-video"></i> Premiere Pro</span>
+                            <span class="skill-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> After Effects</span>
+                            <span class="skill-tag"><i class="fa-solid fa-film"></i> DaVinci Resolve</span>
+                        </div>
+                    </div>
+
+                    <div class="member-stats-block">
+                        <div class="stat-item">
+                            <span class="stat-number highlight">5+</span>
+                            <span class="stat-label">Years Exp.</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number highlight">100+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number highlight">50+</span>
+                            <span class="stat-label">Clients</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-btn-wrap" style="margin-top: 2rem; justify-content: flex-start;">
+                    <a href="tauheed-hamza.html" class="profile-link-btn">View Full Profile <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="about-image fade-in-up">
+                <div class="about-profile-img-wrap">
+                    <img src="images/tauheed.webp" alt="Tauheed Hamza" class="about-profile-img" loading="lazy"
+                        width="500" height="420">
+                </div>
+            </div>
+
+            <div class="member-visual-accent">
+                <i class="fa-solid fa-user-astronaut"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About: Salman Zain -->
+    <section id="about-salman" class="home-section member-about-section alt-bg">
+        <div class="member-about-inner about-reverse">
+            <div class="about-text fade-in-up">
+                <div class="member-about-header">
+                    <div class="section-badge">About Me</div>
+                    <h2>Salman <span class="highlight">Zain</span></h2>
+                    <p class="member-intro">As a Creative Director, I focus on the bigger picture — bridging the gap
+                        between
+                        strategy and design. My expertise lies in brand identity, user experience, and leading creative
+                        teams to deliver work that resonates and performs.</p>
+                </div>
+
+                <div class="member-about-body">
+                    <div class="member-skills-block">
+                        <h3>My <span class="highlight">Toolkit</span></h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag"><i class="fa-solid fa-compass-drafting"></i> Brand Strategy</span>
+                            <span class="skill-tag"><i class="fa-solid fa-layer-group"></i> UI/UX Design</span>
+                            <span class="skill-tag"><i class="fa-solid fa-users-viewfinder"></i> Art Direction</span>
+                            <span class="skill-tag"><i class="fa-brands fa-figma"></i> Figma</span>
+                            <span class="skill-tag"><i class="fa-solid fa-bullhorn"></i> Marketing</span>
+                            <span class="skill-tag"><i class="fa-brands fa-adobe"></i> Illustrator</span>
+                        </div>
+                    </div>
+
+                    <div class="member-stats-block">
+                        <div class="stat-item">
+                            <span class="stat-number highlight">7+</span>
+                            <span class="stat-label">Years Exp.</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number highlight">150+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number highlight">80+</span>
+                            <span class="stat-label">Brands</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-btn-wrap" style="margin-top: 2rem; justify-content: flex-start;">
+                    <a href="salman-zain.html" class="profile-link-btn">More About Salman <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="about-image fade-in-up">
+                <div class="about-profile-img-wrap">
+                    <img src="images/salman.webp" alt="Salman Zain" class="about-profile-img" loading="lazy" width="500"
+                        height="420">
+                </div>
+            </div>
+
+            <div class="member-visual-accent">
+                <i class="fa-solid fa-palette"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About: Zain Zahid -->
+    <section id="about-zain" class="home-section member-about-section">
+        <div class="member-about-inner">
+            <div class="about-text fade-in-up">
+                <div class="member-about-header">
+                    <div class="section-badge">About Me</div>
+                    <h2>Zain <span class="highlight">Zahid</span></h2>
+                    <p class="member-intro">A Visual Artist and Motion Designer who loves to experiment. From 3D motion
+                        graphics to experimental typography, I push boundaries to create visuals that capture attention,
+                        provoke thought, and leave a lasting impression.</p>
+                </div>
+
+                <div class="member-about-body">
+                    <div class="member-skills-block">
+                        <h3>My <span class="highlight">Toolkit</span></h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag"><i class="fa-solid fa-cube"></i> Blender 3D</span>
+                            <span class="skill-tag"><i class="fa-solid fa-film"></i> Cinema 4D</span>
+                            <span class="skill-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Motion
+                                Graphics</span>
+                            <span class="skill-tag"><i class="fa-brands fa-adobe"></i> After Effects</span>
+                            <span class="skill-tag"><i class="fa-solid fa-camera-retro"></i> Photography</span>
+                            <span class="skill-tag"><i class="fa-solid fa-vr-cardboard"></i> 3D Animation</span>
+                        </div>
+                    </div>
+
+                    <div class="member-stats-block">
+                        <div class="stat-item">
+                            <span class="stat-number highlight">4+</span>
+                            <span class="stat-label">Years Exp.</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number highlight">80+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number highlight">20+</span>
+                            <span class="stat-label">Exhibitions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-btn-wrap" style="margin-top: 2rem; justify-content: flex-start;">
+                    <a href="zain-zahid.html" class="profile-link-btn">More About Zain <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="about-image fade-in-up">
+                <div class="about-profile-img-wrap">
+                    <img src="images/zain.webp" alt="Zain Zahid" class="about-profile-img" loading="lazy" width="500"
+                        height="420">
+                </div>
+            </div>
+
+            <div class="member-visual-accent">
+                <i class="fa-solid fa-vr-cardboard"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About: Hamza Rajput -->
+    <section id="about-hamza" class="home-section member-about-section alt-bg">
+        <div class="member-about-inner about-reverse">
+            <div class="about-text fade-in-up">
+                <div class="member-about-header">
+                    <div class="section-badge">About Me</div>
+                    <h2>Hamza <span class="highlight">Rajput</span></h2>
+                    <p class="member-intro">A dedicated Video Editor and Content Strategist who transforms raw footage
+                        into
+                        compelling visual narratives. I merge technical precision with creative flair to produce content
+                        that captivates, converts, and leaves a lasting impression.</p>
+                </div>
+
+                <div class="member-about-body">
+                    <div class="member-skills-block">
+                        <h3>My <span class="highlight">Toolkit</span></h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag"><i class="fa-solid fa-film"></i> Video Editing</span>
+                            <span class="skill-tag"><i class="fa-solid fa-palette"></i> Colour Grading</span>
+                            <span class="skill-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Motion
+                                Graphics</span>
+                            <span class="skill-tag"><i class="fa-brands fa-adobe"></i> After Effects</span>
+                            <span class="skill-tag"><i class="fa-solid fa-chart-line"></i> Content Strategy</span>
+                            <span class="skill-tag"><i class="fa-solid fa-bolt"></i> Short-Form Content</span>
+                        </div>
+                    </div>
+
+                    <div class="member-stats-block">
+                        <div class="stat-item">
+                            <span class="stat-number highlight">3+</span>
+                            <span class="stat-label">Years Exp.</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number highlight">60+</span>
+                            <span class="stat-label">Videos Edited</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number highlight">5M+</span>
+                            <span class="stat-label">Views Generated</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-btn-wrap" style="margin-top: 2rem; justify-content: flex-start;">
+                    <a href="hamza-rajput.html" class="profile-link-btn">View Full Profile <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="about-image fade-in-up">
+                <div class="about-profile-img-wrap">
+                    <img src="images/hamza.webp" alt="Hamza Rajput" class="about-profile-img" loading="lazy" width="500"
+                        height="420">
+                </div>
+            </div>
+
+            <div class="member-visual-accent">
+                <i class="fa-solid fa-clapperboard"></i>
+            </div>
+        </div>
+    </section>
 
     <!-- Experience Section -->
     <section id="experience" class="home-section">

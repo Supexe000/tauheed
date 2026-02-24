@@ -1,4 +1,4 @@
-/* Reset */
+﻿/* Reset */
 *,
 *::before,
 *::after {
@@ -964,7 +964,7 @@ main {
     /* Masonry-like behavior handled by leaving gap and aspect ratios separate? 
        CSS Grid aligns strictly rows. For purely 'masonry' look without JS, columns is better, 
        but `grid-template-columns` is required by prompt 'Responsive grid'. 
-       We will strictly follow the prompt 'desktop 3–4 columns'. */
+       We will strictly follow the prompt 'desktop 3â€“4 columns'. */
 }
 
 @media (max-width: 1024px) {
@@ -1533,7 +1533,7 @@ footer {
 }
 
 .service-list li::before {
-    content: "•";
+    content: "â€¢";
     position: absolute;
     left: 0;
     color: var(--accent-color);
@@ -2264,5 +2264,564 @@ footer {
     /* Ensure card info is visible */
     .card-info {
         display: block !important;
+    }
+}
+
+/* ==================================================================
+   MEMBER ABOUT SECTIONS (Tauheed, Salman, Zain)
+   ================================================================== */
+
+.member-about-section {
+    padding: 6rem 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-about-section.alt-bg {
+    background: rgba(255, 255, 255, 0.015);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Decorative large background icon */
+.member-visual-accent {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: clamp(10rem, 18vw, 18rem);
+    color: rgba(255, 255, 255, 0.03);
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    transition: color 0.5s;
+}
+
+.member-about-section:hover .member-visual-accent {
+    color: rgba(253, 76, 17, 0.04);
+}
+
+/* Inner container — 2-column flex layout */
+.member-about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* Modifier for alternating layout */
+.about-reverse {
+    flex-direction: row-reverse;
+}
+
+.about-text {
+    flex: 1.2;
+}
+
+.about-image {
+    flex: 0.8;
+}
+
+/* Header: badge + heading + intro */
+.member-about-header {
+    text-align: left;
+    max-width: 100%;
+}
+
+.section-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 1.2rem;
+    opacity: 0.9;
+}
+
+.member-about-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.member-intro {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    line-height: 1.8;
+    max-width: 100%;
+    margin-bottom: 2.5rem;
+}
+
+/* Body: skills + stats side by side */
+.member-about-body {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Skills block */
+.member-skills-block h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+
+.member-skills-block .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+/* Stats block */
+.member-stats-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 2rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.member-stats-block .stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Divider between sections */
+.member-about-section+.member-about-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Fade-in-up base state (JS animates these) */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .member-about-body {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .member-stats-block {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2rem;
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 2rem;
+    }
+
+    .member-visual-accent {
+        right: -5%;
+        font-size: 12rem;
+        opacity: 0.5;
+    }
+
+    .member-skills-block h3 {
+        text-align: center;
+    }
+
+    .member-skills-block .skill-tags {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .member-about-section {
+        padding: 5rem 5%;
+    }
+
+    .member-about-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .member-intro {
+        font-size: 1rem;
+    }
+
+    .member-visual-accent {
+        display: none;
+    }
+
+    .member-stats-block {
+        justify-content: center;
+    }
+}
+
+/* ==================================================================
+   MENU BUTTON (single, top-right)
+   ================================================================== */
+.menu-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
+    min-height: 44px;
+    backdrop-filter: blur(8px);
+}
+
+.menu-btn:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(253, 76, 17, 0.35);
+}
+
+.menu-btn i {
+    font-size: 0.95rem;
+    transition: transform 0.3s;
+}
+
+.menu-btn.is-open i {
+    transform: rotate(90deg);
+}
+
+/* ==================================================================
+   FULLSCREEN OVERLAY MENU
+   ================================================================== */
+.fullscreen-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    background: rgba(10, 10, 10, 0.97);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+
+    /* Hidden state */
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.fullscreen-menu.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+/* Close button */
+.menu-close {
+    position: absolute;
+    top: 2rem;
+    right: 2.5rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.menu-close:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: rotate(90deg);
+}
+
+/* Overlay nav links */
+.overlay-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.menu-link {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    line-height: 1.25;
+    padding: 0.2rem 1rem;
+    position: relative;
+    transition: color 0.25s ease;
+
+    /* Stagger animation: set via JS or nth-child */
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.4s ease, transform 0.4s ease, color 0.25s ease;
+}
+
+.fullscreen-menu.is-open .menu-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays */
+.fullscreen-menu.is-open .menu-link:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.fullscreen-menu.is-open .menu-link:nth-child(2) {
+    transition-delay: 0.12s;
+}
+
+.fullscreen-menu.is-open .menu-link:nth-child(3) {
+    transition-delay: 0.19s;
+}
+
+.fullscreen-menu.is-open .menu-link:nth-child(4) {
+    transition-delay: 0.26s;
+}
+
+.fullscreen-menu.is-open .menu-link:nth-child(5) {
+    transition-delay: 0.33s;
+}
+
+.menu-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.menu-link:hover,
+.menu-link.active-section {
+    color: #fff;
+}
+
+.menu-link:hover::after,
+.menu-link.active-section::after {
+    width: 60%;
+}
+
+.menu-link.active-section {
+    color: var(--accent-color);
+}
+
+/* Profile links at menu bottom */
+.menu-footer {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.4s ease 0.4s, transform 0.4s ease 0.4s;
+}
+
+.fullscreen-menu.is-open .menu-footer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-profile-link {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 8px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    transition: color 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.menu-profile-link:hover {
+    color: #fff;
+    border-color: var(--accent-color);
+    background: rgba(253, 76, 17, 0.1);
+}
+
+/* Mobile: tighten up */
+@media (max-width: 600px) {
+    .menu-link {
+        font-size: 2rem;
+    }
+
+    .menu-close {
+        top: 1.2rem;
+        right: 1.2rem;
+    }
+
+    .menu-footer {
+        gap: 0.8rem;
+    }
+}
+
+/* ==================================================================
+   PROFILE LINK BUTTONS (About sections → dedicated pages)
+   ================================================================== */
+.profile-btn-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.profile-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 36px;
+    border: 2px solid var(--accent-color);
+    background: transparent;
+    color: var(--accent-color);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    min-height: 44px;
+    cursor: pointer;
+    transition: background 0.35s ease, color 0.35s ease, box-shadow 0.35s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-link-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent-color);
+    transform: translateX(-101%);
+    transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 0;
+}
+
+.profile-link-btn:hover::before {
+    transform: translateX(0);
+}
+
+.profile-link-btn span,
+.profile-link-btn i {
+    position: relative;
+    z-index: 1;
+}
+
+.profile-link-btn:hover {
+    color: #fff;
+    box-shadow: 0 8px 25px rgba(253, 76, 17, 0.4);
+    transform: translateY(-2px);
+}
+
+.profile-link-btn i {
+    transition: transform 0.3s ease;
+}
+
+.profile-link-btn:hover i {
+    transform: translateX(5px);
+}
+
+@media (max-width: 600px) {
+    .profile-link-btn {
+        padding: 14px 28px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ==================================================================
+   NAV — Remove old mobile-menu-btn & nav-links (kept for profile pages)
+   Override for profile pages that still use .nav-links
+   ================================================================== */
+.mobile-menu-btn {
+    display: none !important;
+    /* Hidden everywhere — replaced by .menu-btn */
+}
+
+/* Profile pages: hide nav-links on desktop too (replaced by menu overlay) */
+nav .nav-links {
+    display: none;
+}
+
+/* ==================================================================
+   ABOUT SECTION — PROFILE PORTRAIT IMAGE
+   ================================================================== */
+.about-profile-img-wrap {
+    display: block;
+    width: 100%;
+}
+
+.about-profile-img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.4s ease;
+}
+
+.about-profile-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 50px rgba(253, 76, 17, 0.25);
+}
+
+@media (max-width: 900px) {
+    .member-about-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 2.5rem;
+    }
+
+    .about-reverse {
+        flex-direction: column;
+    }
+
+    .member-about-header {
+        text-align: center;
+    }
+
+    .about-profile-img {
+        height: 300px;
     }
 }

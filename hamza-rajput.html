@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamza Rajput — Video Editor & Content Strategist</title>
+    <meta name="description"
+        content="Hamza Rajput is a passionate Video Editor and Content Strategist crafting compelling narratives through post-production, colour grading, and digital storytelling.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ── Profile page overrides ───────────────────────────── */
+        :root {
+            --accent-color: #fd4c11;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            cursor: none;
+        }
+
+        /* Hero */
+        .profile-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 2rem 5rem;
+        }
+
+        .profile-hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(253, 76, 17, .18) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 80% 100%, rgba(253, 76, 17, .10) 0%, transparent 60%);
+            z-index: 0;
+        }
+
+        .profile-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-badge {
+            display: inline-block;
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            border: 1px solid rgba(253, 76, 17, .35);
+            padding: 7px 20px;
+            border-radius: 30px;
+            margin-bottom: 2rem;
+        }
+
+        .profile-hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 1.2rem;
+        }
+
+        .profile-hero h1 .accent {
+            color: var(--accent-color);
+        }
+
+        .profile-tagline {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-weight: 300;
+            color: rgba(255, 255, 255, .65);
+            max-width: 520px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-cta-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 36px;
+            background: var(--accent-color);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: .9rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            min-height: 44px;
+            transition: box-shadow .3s, transform .3s;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 30px rgba(253, 76, 17, .45);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 36px;
+            border: 2px solid rgba(255, 255, 255, .2);
+            color: rgba(255, 255, 255, .8);
+            font-family: 'Outfit', sans-serif;
+            font-size: .9rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            min-height: 44px;
+            transition: border-color .3s, color .3s, background .3s;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent-color);
+            color: #fff;
+            background: rgba(253, 76, 17, .08);
+        }
+
+        /* Scroll indicator */
+        .scroll-hint {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .5rem;
+            opacity: .4;
+            z-index: 1;
+            animation: scrollBounce 2s infinite;
+        }
+
+        .scroll-hint span {
+            font-size: .7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @keyframes scrollBounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(6px);
+            }
+        }
+
+        /* Stat strip */
+        .stat-strip {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, .06);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            background: rgba(255, 255, 255, .015);
+        }
+
+        .stat-strip .stat-item {
+            text-align: center;
+        }
+
+        .stat-strip .stat-number {
+            display: block;
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            line-height: 1;
+        }
+
+        .stat-strip .stat-label {
+            display: block;
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .45);
+            margin-top: .4rem;
+        }
+
+        /* Content blocks */
+        .profile-section {
+            padding: 6rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .profile-section+.profile-section {
+            border-top: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .section-eyebrow {
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .profile-section h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .profile-section p {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: rgba(255, 255, 255, .7);
+            max-width: 760px;
+        }
+
+        .profile-section p+p {
+            margin-top: 1.2rem;
+        }
+
+        /* Skills grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 14px;
+            padding: 1.3rem 1.5rem;
+            transition: border-color .3s, background .3s;
+        }
+
+        .skill-card:hover {
+            border-color: rgba(253, 76, 17, .4);
+            background: rgba(253, 76, 17, .04);
+        }
+
+        .skill-card i {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            margin-bottom: .8rem;
+        }
+
+        .skill-card h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: .9rem;
+            font-weight: 700;
+            margin-bottom: .3rem;
+        }
+
+        .skill-card p {
+            font-size: .8rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, .5);
+        }
+
+        /* Portfolio grid */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .work-card {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: border-color .3s, transform .3s;
+        }
+
+        .work-card:hover {
+            border-color: rgba(253, 76, 17, .35);
+            transform: translateY(-4px);
+        }
+
+        .work-card-thumb {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: rgba(255, 255, 255, .05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .work-card-body {
+            padding: 1.2rem 1.4rem;
+        }
+
+        .work-card-body h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: .4rem;
+        }
+
+        .work-card-body p {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.55;
+        }
+
+        .work-tag {
+            display: inline-block;
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            border: 1px solid rgba(253, 76, 17, .3);
+            border-radius: 20px;
+            padding: 3px 10px;
+            margin-top: .7rem;
+        }
+
+        /* Timeline */
+        .profile-timeline {
+            margin-top: 2.5rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .profile-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: 8px;
+            width: 1px;
+            background: rgba(255, 255, 255, .1);
+        }
+
+        .timeline-entry {
+            position: relative;
+            padding-bottom: 2.5rem;
+        }
+
+        .timeline-entry::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            box-shadow: 0 0 10px rgba(253, 76, 17, .5);
+        }
+
+        .timeline-entry h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: .2rem;
+        }
+
+        .timeline-entry .t-meta {
+            font-size: .78rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: .5rem;
+        }
+
+        .timeline-entry p {
+            font-size: .9rem;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, .6);
+        }
+
+        /* Contact strip */
+        .contact-strip {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: rgba(253, 76, 17, .04);
+            border-top: 1px solid rgba(253, 76, 17, .12);
+        }
+
+        .contact-strip h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .contact-strip p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, .6);
+            margin-bottom: 2.5rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .stat-strip {
+                gap: 2rem;
+            }
+
+            .hero-cta-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-timeline {
+                padding-left: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Custom cursor -->
+    <div class="custom-cursor">
+        <span class="cursor-text">HIRE ME</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Portfolio Logo" id="nav-logo"></a>
+        </div>
+        <button class="menu-btn" id="menuBtn" aria-label="Open Menu">Menu <i class="fa-solid fa-bars"></i></button>
+    </nav>
+
+    <!-- Fullscreen Overlay Menu -->
+    <div id="fullscreen-menu" class="fullscreen-menu" aria-hidden="true">
+        <button class="menu-close" id="menuClose" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
+        <nav class="overlay-nav">
+            <a href="index.html" class="menu-link">Home</a>
+            <a href="index.html#about-tauheed" class="menu-link">About</a>
+            <a href="index.html#featured-carousel" class="menu-link">Featured Work</a>
+            <a href="index.html#experience" class="menu-link">My Journey</a>
+            <a href="index.html#contact" class="menu-link">Contact</a>
+        </nav>
+        <div class="menu-footer">
+            <a href="tauheed-hamza.html" class="menu-profile-link">Tauheed Hamza</a>
+            <a href="salman-zain.html" class="menu-profile-link">Salman Zain</a>
+            <a href="zain-zahid.html" class="menu-profile-link">Zain Zahid</a>
+            <a href="hamza-rajput.html" class="menu-profile-link"
+                style="color: var(--accent-color); border-color: var(--accent-color);">Hamza Rajput</a>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="profile-hero">
+        <div class="profile-hero-bg"></div>
+        <div class="profile-hero-content">
+            <div class="about-profile-img-wrap" style="margin-bottom: 2rem;">
+                <img src="images/hamza.webp" alt="Hamza Rajput" class="about-profile-img" loading="lazy" width="150"
+                    height="150" style="margin: 0 auto; display: block;">
+            </div>
+            <span class="profile-badge">Portfolio</span>
+            <h1>Hamza <span class="accent">Rajput</span></h1>
+            <p class="profile-tagline">Video Editor & Content Strategist — crafting stories that move people, frame by
+                frame.</p>
+            <div class="hero-cta-row">
+                <a href="index.html#contact" class="btn-primary"><span>Work With Me</span> <i
+                        class="fa-solid fa-arrow-right"></i></a>
+                <a href="index.html" class="btn-ghost"><span>Back to Home</span> <i class="fa-solid fa-house"></i></a>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <span>Scroll</span>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Stat strip -->
+    <div class="stat-strip">
+        <div class="stat-item">
+            <span class="stat-number">3+</span>
+            <span class="stat-label">Years Exp.</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">60+</span>
+            <span class="stat-label">Videos Edited</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">30+</span>
+            <span class="stat-label">Happy Clients</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">5M+</span>
+            <span class="stat-label">Views Generated</span>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div class="profile-section">
+        <p class="section-eyebrow">About Me</p>
+        <h2>The Story Behind <span style="color: var(--accent-color);">the Edit</span></h2>
+        <p>I'm Hamza Rajput, a Video Editor and Content Strategist with a passion for turning raw footage into polished,
+            high-impact visual stories. I believe great editing is invisible — the audience feels the emotion before
+            they register the cut.</p>
+        <p>My workflow blends technical precision with creative intuition. From fast-paced social content to long-form
+            documentaries, I approach every project with the same obsession: keep the viewer hooked until the very last
+            frame.</p>
+        <p>Beyond the timeline, I work closely with brands and creators to build content strategies that drive real
+            results — more views, more engagement, and a stronger online presence. My toolkit is built around speed,
+            quality, and storytelling that converts.</p>
+    </div>
+
+    <!-- Skills -->
+    <div class="profile-section">
+        <p class="section-eyebrow">What I Do</p>
+        <h2>Skills & <span style="color: var(--accent-color);">Expertise</span></h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fa-solid fa-film"></i>
+                <h4>Video Editing</h4>
+                <p>Narrative pacing, cut timing, and visual rhythm across all formats.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-palette"></i>
+                <h4>Colour Grading</h4>
+                <p>Cinematic colour science using DaVinci Resolve and Premiere Pro.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <h4>Motion Graphics</h4>
+                <p>Animated titles, lower thirds, and After Effects compositing.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h4>Content Strategy</h4>
+                <p>Platform-native strategies for YouTube, Instagram Reels, and TikTok.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-volume-high"></i>
+                <h4>Sound Design</h4>
+                <p>Audio mixing, SFX layering, and music synchronisation.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-bolt"></i>
+                <h4>Short-Form Content</h4>
+                <p>Hook-driven edits optimised for maximum retention and reach.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience timeline -->
+    <div class="profile-section">
+        <p class="section-eyebrow">Experience</p>
+        <h2>My <span style="color: var(--accent-color);">Journey</span></h2>
+        <div class="profile-timeline">
+            <div class="timeline-entry">
+                <h4>Freelance Video Editor & Strategist</h4>
+                <p class="t-meta">2022 – Present · Remote</p>
+                <p>Delivered 60+ edited videos for brands, YouTubers, and entrepreneurs. Managed end-to-end
+                    post-production workflows while advising clients on content calendars and platform growth tactics.
+                </p>
+            </div>
+            <div class="timeline-entry">
+                <h4>Junior Editor — Digital Creative Studio</h4>
+                <p class="t-meta">2021 – 2022</p>
+                <p>Assisted senior editors on commercial and corporate video projects. Developed proficiency in colour
+                    grading pipelines and motion graphics templates for large-scale campaigns.</p>
+            </div>
+            <div class="timeline-entry">
+                <h4>Content Creator (Self-Initiated)</h4>
+                <p class="t-meta">2020 – 2021</p>
+                <p>Launched an independent YouTube channel to sharpen editing skills and storytelling instincts. Grew an
+                    audience through consistent, high-quality content production.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio highlights -->
+    <div class="profile-section">
+        <p class="section-eyebrow">Work Samples</p>
+        <h2>Selected <span style="color: var(--accent-color);">Projects</span></h2>
+        <div class="work-grid">
+            <div class="work-card">
+                <div class="work-card-thumb">🎬</div>
+                <div class="work-card-body">
+                    <h4>Brand Launch Video</h4>
+                    <p>Cinematic 90-second product launch reel with custom colour grade and sound design.</p>
+                    <span class="work-tag">Commercial</span>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-card-thumb">📱</div>
+                <div class="work-card-body">
+                    <h4>Viral Reels Series</h4>
+                    <p>12-part Reels series achieving 2M+ combined views for a lifestyle brand.</p>
+                    <span class="work-tag">Short-Form</span>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-card-thumb">🎥</div>
+                <div class="work-card-body">
+                    <h4>Documentary Short</h4>
+                    <p>15-minute documentary on local entrepreneurs — narration editing, colour, and score layering.</p>
+                    <span class="work-tag">Documentary</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact strip -->
+    <div class="contact-strip">
+        <h2>Let's Create <span style="color: var(--accent-color);">Together</span></h2>
+        <p>Have a project in mind? I'd love to hear about it.</p>
+        <div class="hero-cta-row">
+            <a href="index.html#contact" class="btn-primary"><span>Get in Touch</span> <i
+                    class="fa-solid fa-envelope"></i></a>
+            <a href="index.html" class="btn-ghost"><span>Back to Home</span> <i class="fa-solid fa-house"></i></a>
+        </div>
+    </div>
+
+    <!-- GSAP + Lenis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.30/dist/lenis.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Lenis smooth scroll
+            const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+            function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+            requestAnimationFrame(raf);
+
+            // Hero entrance
+            gsap.from('.profile-badge', { y: 20, opacity: 0, duration: 0.8, ease: 'power3.out' });
+            gsap.from('.profile-hero h1', { y: 50, opacity: 0, duration: 1, delay: 0.15, ease: 'power3.out' });
+            gsap.from('.profile-tagline', { y: 30, opacity: 0, duration: 0.9, delay: 0.3, ease: 'power3.out' });
+            gsap.from('.hero-cta-row', { y: 20, opacity: 0, duration: 0.8, delay: 0.5, ease: 'power3.out' });
+            gsap.from('.stat-strip .stat-item', { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, delay: 0.6, ease: 'power3.out' });
+
+            // Scroll animations
+            document.querySelectorAll('.profile-section, .contact-strip').forEach((section, i) => {
+                gsap.from(section.children, {
+                    scrollTrigger: { trigger: section, start: 'top 80%' },
+                    y: 40, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out'
+                });
+            });
+
+            gsap.from('.skill-card', {
+                scrollTrigger: { trigger: '.skills-grid', start: 'top 85%' },
+                y: 25, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out'
+            });
+
+            gsap.from('.work-card', {
+                scrollTrigger: { trigger: '.work-grid', start: 'top 85%' },
+                y: 30, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'power3.out'
+            });
+
+            gsap.from('.timeline-entry', {
+                scrollTrigger: { trigger: '.profile-timeline', start: 'top 80%' },
+                y: 25, opacity: 0, duration: 0.7, stagger: 0.18, ease: 'power3.out'
+            });
+
+            // Menu overlay
+            const menuBtn = document.getElementById('menuBtn');
+            const menuClose = document.getElementById('menuClose');
+            const fullscreenMenu = document.getElementById('fullscreen-menu');
+
+            const openMenu = () => {
+                fullscreenMenu.classList.add('is-open');
+                fullscreenMenu.setAttribute('aria-hidden', 'false');
+                menuBtn.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+            };
+            const closeMenu = () => {
+                fullscreenMenu.classList.remove('is-open');
+                fullscreenMenu.setAttribute('aria-hidden', 'true');
+                menuBtn.classList.remove('is-open');
+                document.body.style.overflow = '';
+            };
+
+            menuBtn.addEventListener('click', openMenu);
+            menuClose.addEventListener('click', closeMenu);
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+            // Custom cursor (basic)
+            const cursor = document.querySelector('.custom-cursor');
+            let cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+            let mx = cx, my = cy;
+
+            document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+
+            const animC = () => {
+                cx += (mx - cx) * 0.15;
+                cy += (my - cy) * 0.15;
+                if (cursor) cursor.style.transform = `translate3d(${cx}px,${cy}px,0) translate(-50%,-50%)`;
+                requestAnimationFrame(animC);
+            };
+            animC();
+        });
+    </script>
+</body>
+
+</html>
