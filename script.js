@@ -202,48 +202,123 @@
     requestAnimationFrame(raf);
 
     // ------------------------------------------------------------------
-    // FEATURED CAROUSEL
+    // FEATURED PORTFOLIO – SLIDER FACTORY
     // ------------------------------------------------------------------
-    const track = document.getElementById('track');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+    function makeSlider(trackId, prevId, nextId, intervalMs) {
+        const track = document.getElementById(trackId);
+        const prev = document.getElementById(prevId);
+        const next = document.getElementById(nextId);
+        if (!track || !prev || !next) return;
 
-    if (track && prevBtn && nextBtn) {
-        const getScrollAmount = () => track.clientWidth * 0.9;
-
-        const handleScroll = (direction) => {
-            const current = track.scrollLeft;
-            const maxScroll = track.scrollWidth - track.clientWidth;
-            const amount = getScrollAmount();
-
-            let target;
-            if (direction === 'next') {
-                target = current + amount;
-                if (Math.ceil(current) >= maxScroll - 5) target = 0;
-            } else {
-                target = current - amount;
-                if (current <= 5) target = maxScroll;
-            }
-
-            track.scrollTo({ left: target, behavior: 'smooth' });
+        const cardWidth = () => {
+            const c = track.querySelector('.pf-card');
+            return c ? c.offsetWidth + 20 : 0; // card + gap
         };
 
-        nextBtn.addEventListener('click', () => handleScroll('next'));
-        prevBtn.addEventListener('click', () => handleScroll('prev'));
-
-        let autoPlay = setInterval(() => handleScroll('next'), 6000);
-        const pause = () => clearInterval(autoPlay);
-        const resume = () => {
-            clearInterval(autoPlay);
-            autoPlay = setInterval(() => handleScroll('next'), 6000);
+        const scrollBy = (dir) => {
+            track.scrollBy({ left: dir * cardWidth(), behavior: 'smooth' });
         };
+
+        prev.addEventListener('click', () => scrollBy(-1));
+        next.addEventListener('click', () => scrollBy(1));
+
+        // Auto-scroll
+        let auto = setInterval(() => scrollBy(1), intervalMs);
+        const pause = () => clearInterval(auto);
+        const resume = () => { auto = setInterval(() => scrollBy(1), intervalMs); };
 
         track.addEventListener('mouseenter', pause);
-        track.addEventListener('touchstart', pause, { passive: true });
         track.addEventListener('mouseleave', resume);
-        nextBtn.addEventListener('mouseenter', pause);
-        prevBtn.addEventListener('mouseenter', pause);
+        track.addEventListener('touchstart', pause, { passive: true });
+        track.addEventListener('touchend', resume, { passive: true });
+
+        // Drag-to-scroll (desktop)
+        let isDown = false, startX, scrollLeft;
+        track.addEventListener('mousedown', (e) => {
+            isDown = true; startX = e.pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft; pause();
+        });
+        track.addEventListener('mouseleave', () => { isDown = false; resume(); });
+        track.addEventListener('mouseup', () => { isDown = false; resume(); });
+        track.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - track.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            track.scrollLeft = scrollLeft - walk;
+        });
     }
+
+    makeSlider('track169', 'prev169', 'next169', 5000);
+    makeSlider('track916', 'prev916', 'next916', 4000);
+
+    // ------------------------------------------------------------------
+    // YOUTUBE LIGHTBOX
+    // ------------------------------------------------------------------
+    document.querySelectorAll('.pf-play-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const ytId = btn.getAttribute('data-yt');
+            if (!ytId) return;
+
+            const lb = document.createElement('div');
+            lb.className = 'yt-lightbox';
+            lb.innerHTML = `
+                <button class="yt-close" aria-label="Close">&times;</button>
+                <iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0"
+                    allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>`;
+            document.body.appendChild(lb);
+            document.body.style.overflow = 'hidden';
+
+            const close = () => {
+                lb.remove();
+                document.body.style.overflow = '';
+            };
+            lb.querySelector('.yt-close').addEventListener('click', close);
+            lb.addEventListener('click', (ev) => { if (ev.target === lb) close(); });
+            document.addEventListener('keydown', function esc(ev) {
+                if (ev.key === 'Escape') { close(); document.removeEventListener('keydown', esc); }
+            });
+        });
+    });
+
+    // ------------------------------------------------------------------
+    // SHOWREEL FULLSCREEN
+    // ------------------------------------------------------------------
+    const sfBtn = document.getElementById('showreelFullscreen');
+    const sVideo = document.getElementById('showreelVideo');
+    if (sfBtn && sVideo) {
+        sfBtn.addEventListener('click', () => {
+            if (sVideo.requestFullscreen) sVideo.requestFullscreen();
+            else if (sVideo.webkitRequestFullscreen) sVideo.webkitRequestFullscreen();
+        });
+    }
+
+    // ------------------------------------------------------------------
+    // BEFORE / AFTER SLIDER DRAG
+    // ------------------------------------------------------------------
+    const baSlider = document.getElementById('baSlider');
+    const baHandle = document.getElementById('baHandle');
+    if (baSlider && baHandle) {
+        const baBefore = baSlider.querySelector('.ba-before');
+        let dragging = false;
+
+        const setPercent = (clientX) => {
+            const rect = baSlider.getBoundingClientRect();
+            let pct = ((clientX - rect.left) / rect.width) * 100;
+            pct = Math.min(95, Math.max(5, pct));
+            baBefore.style.width = pct + '%';
+            baHandle.style.left = pct + '%';
+        };
+
+        baHandle.addEventListener('mousedown', (e) => { dragging = true; e.preventDefault(); });
+        document.addEventListener('mousemove', (e) => { if (dragging) setPercent(e.clientX); });
+        document.addEventListener('mouseup', () => { dragging = false; });
+        baHandle.addEventListener('touchstart', (e) => { dragging = true; }, { passive: true });
+        document.addEventListener('touchmove', (e) => { if (dragging) setPercent(e.touches[0].clientX); }, { passive: true });
+        document.addEventListener('touchend', () => { dragging = false; });
+    }
+
 
     // ------------------------------------------------------------------
     // RIPPLE EFFECT (Mobile)
@@ -306,25 +381,22 @@
         });
     }
 
-    // Services Animation
+
+    // Services Section Animation
     const servicesSection = document.getElementById('services');
     if (servicesSection) {
         gsap.from(servicesSection.querySelector('.section-header'), {
-            scrollTrigger: { trigger: servicesSection, start: 'top 80%' },
+            scrollTrigger: { trigger: servicesSection, start: 'top 82%' },
             y: 30, opacity: 0, duration: 0.8, ease: 'power3.out'
         });
-
-        const cards = servicesSection.querySelectorAll('.service-card');
-        cards.forEach((card, i) => {
-            gsap.from(card, {
-                scrollTrigger: { trigger: card, start: 'top 85%' },
-                y: 50, opacity: 0, duration: 0.8, delay: i * 0.2, ease: 'power3.out'
-            });
-            gsap.from(card.querySelectorAll('li'), {
-                scrollTrigger: { trigger: card, start: 'top 85%' },
-                x: -10, opacity: 0, duration: 0.5, stagger: 0.08, delay: 0.4 + (i * 0.2), ease: 'power2.out'
-            });
-        });
+        gsap.fromTo(
+            servicesSection.querySelectorAll('.svc-card'),
+            { opacity: 0, y: 40 },
+            {
+                scrollTrigger: { trigger: servicesSection, start: 'top 75%' },
+                opacity: 1, y: 0, duration: 0.75, stagger: 0.12, ease: 'power3.out'
+            }
+        );
     }
 
     // Pricing Animation
@@ -371,18 +443,28 @@
         });
     }
 
-    // Featured Carousel Animation
-    const carouselSection = document.getElementById('featured-carousel');
-    if (carouselSection) {
-        gsap.from(carouselSection.querySelector('.section-header'), {
-            scrollTrigger: { trigger: carouselSection, start: 'top 80%' },
+    // Featured Portfolio Animation
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+        // Section header
+        gsap.from(portfolioSection.querySelector('.section-header'), {
+            scrollTrigger: { trigger: portfolioSection, start: 'top 82%' },
             y: 30, opacity: 0, duration: 0.8, ease: 'power3.out'
         });
-        gsap.from(carouselSection.querySelector('.carousel-wrapper'), {
-            scrollTrigger: { trigger: carouselSection, start: 'top 75%' },
-            opacity: 0, y: 30, duration: 1, ease: 'power3.out'
+        // Each module fades up in sequence
+        portfolioSection.querySelectorAll('.portfolio-module').forEach((mod, i) => {
+            gsap.from(mod, {
+                scrollTrigger: { trigger: mod, start: 'top 88%' },
+                y: 40, opacity: 0, duration: 0.8, delay: i * 0.05, ease: 'power3.out'
+            });
+        });
+        // Behind-the-work breakdown cards stagger
+        gsap.from(portfolioSection.querySelectorAll('.btw-card'), {
+            scrollTrigger: { trigger: '.btw-grid', start: 'top 85%' },
+            y: 30, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power3.out'
         });
     }
+
 
     // Appointment Form Animation
     const contactSection = document.getElementById('contact');
@@ -559,7 +641,7 @@
     });
 
     // Active section highlight via IntersectionObserver
-    const sectionIds = ['hero', 'about-tauheed', 'about-salman', 'about-zain', 'about-hamza', 'featured-carousel', 'experience', 'contact'];
+    const sectionIds = ['hero', 'portfolio', 'services', 'about-tauheed', 'about-salman', 'about-zain', 'about-hamza', 'experience', 'contact'];
     const observerOptions = { root: null, rootMargin: '-40% 0px -40% 0px', threshold: 0 };
 
     const sectionObserver = new IntersectionObserver((entries) => {
@@ -600,6 +682,7 @@
                 });
             });
         });
+
     }
 
 });
