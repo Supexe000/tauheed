@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Reels 9:16 | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="portfolio-cat.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Portfolio Logo" id="nav-logo"></a>
+        </div>
+        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    </nav>
+
+    <header class="cat-page-hero">
+        <h1>Reels & <span class="highlight">Shorts</span></h1>
+        <p>Vertical 9:16 content built for Instagram, TikTok & YouTube Shorts — high-impact, scroll-stopping edits</p>
+    </header>
+
+    <section class="cat-page-grid">
+        <div class="grid-9-16">
+
+            <div class="grid-card ar-9-16" data-yt="9No-FiEInLA">
+                <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+1" alt="Fashion Reel" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Fashion Reel</div>
+            </div>
+
+            <div class="grid-card ar-9-16" data-yt="ScMzIvxBSi4">
+                <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+2" alt="Product Reel" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Product Reel</div>
+            </div>
+
+            <div class="grid-card ar-9-16" data-yt="9No-FiEInLA">
+                <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+3" alt="Event Reel" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Event Reel</div>
+            </div>
+
+            <div class="grid-card ar-9-16" data-yt="ScMzIvxBSi4">
+                <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+4" alt="Social Reel" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Social Reel</div>
+            </div>
+
+            <div class="grid-card ar-9-16" data-yt="9No-FiEInLA">
+                <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+5" alt="Brand Reel" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Brand Reel</div>
+            </div>
+
+            <div class="grid-card ar-9-16" data-yt="dQw4w9WgXcQ">
+                <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+6" alt="Travel Reel" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Travel Reel</div>
+            </div>
+
+            <div class="grid-card ar-9-16" data-yt="9No-FiEInLA">
+                <img src="https://placehold.co/405x720/0d0d0d/fd4c11?text=Reel+7" alt="Lifestyle Reel" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Lifestyle Reel</div>
+            </div>
+
+            <div class="grid-card ar-9-16" data-yt="ScMzIvxBSi4">
+                <img src="https://placehold.co/405x720/0d0d0d/fd4c11?text=Reel+8" alt="Comedy Skit" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Comedy Skit</div>
+            </div>
+
+            <div class="grid-card ar-9-16" data-yt="dQw4w9WgXcQ">
+                <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+9" alt="Food Reel" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Food Reel</div>
+            </div>
+
+            <div class="grid-card ar-9-16" data-yt="9No-FiEInLA">
+                <img src="https://placehold.co/405x720/0d0d0d/fd4c11?text=Reel+10" alt="Fitness Reel" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Fitness Reel</div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        document.querySelectorAll('.grid-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const ytId = card.getAttribute('data-yt');
+                if (!ytId) return;
+                const lb = document.createElement('div');
+                lb.className = 'yt-lightbox';
+                lb.innerHTML = `<button class="yt-close">&times;</button>
+                    <iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0"
+                    allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+                document.body.appendChild(lb);
+                document.body.style.overflow = 'hidden';
+                const close = () => { lb.remove(); document.body.style.overflow = ''; };
+                lb.querySelector('.yt-close').addEventListener('click', close);
+                lb.addEventListener('click', ev => { if (ev.target === lb) close(); });
+                document.addEventListener('keydown', function esc(ev) {
+                    if (ev.key === 'Escape') { close(); document.removeEventListener('keydown', esc); }
+                });
+            });
+        });
+        if (typeof gsap !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from('.cat-page-hero > *', { y: 40, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out' });
+            gsap.from('.grid-card', {
+                y: 40, opacity: 0, duration: 0.7, stagger: 0.07, ease: 'power3.out',
+                scrollTrigger: { trigger: '.cat-page-grid', start: 'top 85%' }
+            });
+        }
+    </script>
+</body>
+
+</html>

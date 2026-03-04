@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Editing 16:9 | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="portfolio-cat.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Portfolio Logo" id="nav-logo"></a>
+        </div>
+        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    </nav>
+
+    <!-- Hero -->
+    <header class="cat-page-hero">
+        <h1>Video <span class="highlight">Editing</span></h1>
+        <p>Cinematic 16:9 cuts — commercials, wedding films, color grades & motion graphics crafted with precision</p>
+    </header>
+
+    <!-- Full Grid -->
+    <section class="cat-page-grid">
+        <div class="grid-16-9">
+
+            <div class="grid-card ar-16-9" data-yt="9No-FiEInLA">
+                <img src="https://img.youtube.com/vi/9No-FiEInLA/maxresdefault.jpg" alt="Cinematic Edit" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Cinematic Edit</div>
+            </div>
+
+            <div class="grid-card ar-16-9" data-yt="ScMzIvxBSi4">
+                <img src="https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg" alt="Commercial Ad" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Commercial Ad</div>
+            </div>
+
+            <div class="grid-card ar-16-9" data-yt="dQw4w9WgXcQ">
+                <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Wedding Film" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Wedding Film</div>
+            </div>
+
+            <div class="grid-card ar-16-9" data-yt="9No-FiEInLA">
+                <img src="https://img.youtube.com/vi/9No-FiEInLA/maxresdefault.jpg" alt="Color Grade Reel"
+                    loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Color Grade Reel</div>
+            </div>
+
+            <div class="grid-card ar-16-9" data-yt="ScMzIvxBSi4">
+                <img src="https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg" alt="Motion Graphics"
+                    loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Motion Graphics</div>
+            </div>
+
+            <div class="grid-card ar-16-9" data-yt="dQw4w9WgXcQ">
+                <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Brand Video" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Brand Video</div>
+            </div>
+
+            <div class="grid-card ar-16-9" data-yt="9No-FiEInLA">
+                <img src="https://img.youtube.com/vi/9No-FiEInLA/maxresdefault.jpg" alt="Corporate Film" loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Corporate Film</div>
+            </div>
+
+            <div class="grid-card ar-16-9" data-yt="ScMzIvxBSi4">
+                <img src="https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg" alt="Documentary Cut"
+                    loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Documentary Cut</div>
+            </div>
+
+            <div class="grid-card ar-16-9" data-yt="dQw4w9WgXcQ">
+                <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Music Video Edit"
+                    loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Music Video Edit</div>
+            </div>
+
+            <div class="grid-card ar-16-9" data-yt="9No-FiEInLA">
+                <img src="https://img.youtube.com/vi/9No-FiEInLA/maxresdefault.jpg" alt="Social Campaign"
+                    loading="lazy">
+                <div class="grid-play-overlay"><i class="fa-solid fa-play"></i></div>
+                <div class="grid-card-label">Social Campaign</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        // YouTube lightbox
+        document.querySelectorAll('.grid-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const ytId = card.getAttribute('data-yt');
+                if (!ytId) return;
+                const lb = document.createElement('div');
+                lb.className = 'yt-lightbox';
+                lb.innerHTML = `<button class="yt-close" aria-label="Close">&times;</button>
+                    <iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0"
+                    allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>`;
+                document.body.appendChild(lb);
+                document.body.style.overflow = 'hidden';
+                const close = () => { lb.remove(); document.body.style.overflow = ''; };
+                lb.querySelector('.yt-close').addEventListener('click', close);
+                lb.addEventListener('click', ev => { if (ev.target === lb) close(); });
+                document.addEventListener('keydown', function esc(ev) {
+                    if (ev.key === 'Escape') { close(); document.removeEventListener('keydown', esc); }
+                });
+            });
+        });
+
+        // GSAP scroll animation
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from('.cat-page-hero > *', { y: 40, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out' });
+            gsap.from('.grid-card', {
+                y: 40, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out',
+                scrollTrigger: { trigger: '.cat-page-grid', start: 'top 85%' }
+            });
+        }
+    </script>
+</body>
+
+</html>

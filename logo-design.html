@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Design | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="portfolio-cat.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Portfolio Logo" id="nav-logo"></a>
+        </div>
+        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    </nav>
+
+    <header class="cat-page-hero">
+        <h1>Logo <span class="highlight">Design</span></h1>
+        <p>Identity marks built from concept to final brand system — each logo tells a story unique to its brand</p>
+    </header>
+
+    <section class="cat-page-grid">
+        <div class="grid-logo">
+
+            <div class="grid-card ar-3-2">
+                <img src="https://placehold.co/360x240/1a1a1a/fd4c11?text=Logo+1" alt="Brand Identity 1" loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Brand Identity</div>
+            </div>
+
+            <div class="grid-card ar-3-2">
+                <img src="https://placehold.co/360x240/1a1a1a/fd4c11?text=Logo+2" alt="Wordmark" loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Wordmark</div>
+            </div>
+
+            <div class="grid-card ar-3-2">
+                <img src="https://placehold.co/360x240/1a1a1a/fd4c11?text=Logo+3" alt="Minimalist Mark" loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Minimalist Mark</div>
+            </div>
+
+            <div class="grid-card ar-3-2">
+                <img src="https://placehold.co/360x240/1a1a1a/fd4c11?text=Logo+4" alt="Letterform" loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Letterform</div>
+            </div>
+
+            <div class="grid-card ar-3-2">
+                <img src="https://placehold.co/360x240/1a1a1a/fd4c11?text=Logo+5" alt="Icon Design" loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Icon Design</div>
+            </div>
+
+            <div class="grid-card ar-3-2">
+                <img src="https://placehold.co/360x240/1a1a1a/fd4c11?text=Logo+6" alt="Full Brand System"
+                    loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Full Brand System</div>
+            </div>
+
+            <div class="grid-card ar-3-2">
+                <img src="https://placehold.co/360x240/0d0d0d/fd4c11?text=Logo+7" alt="Sports Brand" loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Sports Brand</div>
+            </div>
+
+            <div class="grid-card ar-3-2">
+                <img src="https://placehold.co/360x240/0d0d0d/fd4c11?text=Logo+8" alt="Restaurant Logo" loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Restaurant Logo</div>
+            </div>
+
+            <div class="grid-card ar-3-2">
+                <img src="https://placehold.co/360x240/1a1a1a/fd4c11?text=Logo+9" alt="Tech Startup" loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Tech Startup</div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        // Image lightbox
+        document.querySelectorAll('.grid-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const img = card.querySelector('img');
+                if (!img) return;
+                const lb = document.createElement('div');
+                lb.className = 'img-lightbox';
+                lb.innerHTML = `<button class="yt-close">&times;</button><img src="${img.src}" alt="${img.alt}">`;
+                document.body.appendChild(lb);
+                document.body.style.overflow = 'hidden';
+                const close = () => { lb.remove(); document.body.style.overflow = ''; };
+                lb.querySelector('.yt-close').addEventListener('click', close);
+                lb.addEventListener('click', ev => { if (ev.target === lb) close(); });
+                document.addEventListener('keydown', function esc(ev) {
+                    if (ev.key === 'Escape') { close(); document.removeEventListener('keydown', esc); }
+                });
+            });
+        });
+        if (typeof gsap !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from('.cat-page-hero > *', { y: 40, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out' });
+            gsap.from('.grid-card', {
+                y: 40, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out',
+                scrollTrigger: { trigger: '.cat-page-grid', start: 'top 85%' }
+            });
+        }
+    </script>
+</body>
+
+</html>

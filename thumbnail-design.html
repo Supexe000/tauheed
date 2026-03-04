@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thumbnail Design | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="portfolio-cat.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Portfolio Logo" id="nav-logo"></a>
+        </div>
+        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    </nav>
+
+    <header class="cat-page-hero">
+        <h1>Thumbnail <span class="highlight">Design</span></h1>
+        <p>Click-worthy 16:9 thumbnails designed to stop the scroll and spike CTR for YouTube, social & ad campaigns</p>
+    </header>
+
+    <section class="cat-page-grid">
+        <div class="grid-thumb">
+
+            <div class="grid-card ar-16-9">
+                <img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+1" alt="YouTube Thumbnail"
+                    loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">YouTube Thumbnail</div>
+            </div>
+
+            <div class="grid-card ar-16-9">
+                <img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+2" alt="Gaming Channel"
+                    loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Gaming Channel</div>
+            </div>
+
+            <div class="grid-card ar-16-9">
+                <img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+3" alt="Tech Review" loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Tech Review</div>
+            </div>
+
+            <div class="grid-card ar-16-9">
+                <img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+4" alt="Vlog Style" loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Vlog Style</div>
+            </div>
+
+            <div class="grid-card ar-16-9">
+                <img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+5" alt="Tutorial Thumb"
+                    loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Tutorial Thumb</div>
+            </div>
+
+            <div class="grid-card ar-16-9">
+                <img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+6" alt="Reaction Video"
+                    loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Reaction Video</div>
+            </div>
+
+            <div class="grid-card ar-16-9">
+                <img src="https://placehold.co/640x360/111111/fd4c11?text=Thumbnail+7" alt="Fitness Channel"
+                    loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Fitness Channel</div>
+            </div>
+
+            <div class="grid-card ar-16-9">
+                <img src="https://placehold.co/640x360/111111/fd4c11?text=Thumbnail+8" alt="Cooking Channel"
+                    loading="lazy">
+                <div class="grid-expand-overlay"><i class="fa-solid fa-expand"></i></div>
+                <div class="grid-card-label">Cooking Channel</div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        document.querySelectorAll('.grid-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const img = card.querySelector('img');
+                if (!img) return;
+                const lb = document.createElement('div');
+                lb.className = 'img-lightbox';
+                lb.innerHTML = `<button class="yt-close">&times;</button><img src="${img.src}" alt="${img.alt}">`;
+                document.body.appendChild(lb);
+                document.body.style.overflow = 'hidden';
+                const close = () => { lb.remove(); document.body.style.overflow = ''; };
+                lb.querySelector('.yt-close').addEventListener('click', close);
+                lb.addEventListener('click', ev => { if (ev.target === lb) close(); });
+                document.addEventListener('keydown', function esc(ev) {
+                    if (ev.key === 'Escape') { close(); document.removeEventListener('keydown', esc); }
+                });
+            });
+        });
+        if (typeof gsap !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from('.cat-page-hero > *', { y: 40, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out' });
+            gsap.from('.grid-card', {
+                y: 40, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out',
+                scrollTrigger: { trigger: '.cat-page-grid', start: 'top 85%' }
+            });
+        }
+    </script>
+</body>
+
+</html>

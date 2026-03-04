@@ -18,6 +18,8 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="portfolio-cat.css">
+
 </head>
 
 <body>
@@ -55,12 +57,11 @@
         <button class="menu-close" id="menuClose" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
         <nav class="overlay-nav">
             <a href="#hero" class="menu-link" data-section="hero">Home</a>
-            <a href="#portfolio" class="menu-link" data-section="portfolio">Portfolio</a>
+            <a href="#cat-video" class="menu-link" data-section="cat-video">Portfolio</a>
             <a href="#services" class="menu-link" data-section="services">Services</a>
             <a href="#about-tauheed" class="menu-link" data-section="about-tauheed">About</a>
             <a href="#experience" class="menu-link" data-section="experience">My Journey</a>
             <a href="#contact" class="menu-link" data-section="contact">Contact</a>
-        </nav>
         </nav>
     </div>
 
@@ -91,264 +92,339 @@
 
 
     <!-- ============================================================ -->
-    <!-- FEATURED PORTFOLIO SECTION                                    -->
+    <!-- CATEGORY PREVIEW SECTIONS                                     -->
     <!-- ============================================================ -->
-    <section id="portfolio" class="home-section portfolio-section">
 
-        <!-- Section Header -->
-        <div class="section-header portfolio-header">
-            <h2>Featured <span class="highlight">Portfolio</span></h2>
-            <p>A curated showcase of our creative work across every discipline.</p>
-        </div>
-
-        <!-- ── MODULE 1: CINEMATIC SHOWREEL ── -->
-        <div class="portfolio-module showreel-module">
-            <div class="module-label"><span class="highlight">01</span> Cinematic Showreel</div>
-            <div class="showreel-wrap">
-                <video id="showreelVideo" class="showreel-video" autoplay muted loop playsinline preload="auto">
-                    <source src="hehe.mp4" type="video/mp4">
-                </video>
-                <div class="showreel-overlay"></div>
-                <button class="showreel-fullscreen" id="showreelFullscreen" aria-label="Full Screen">
-                    <i class="fa-solid fa-expand"></i>
-                </button>
+    <!-- ── CATEGORY 1: VIDEO EDITING 16:9 ── -->
+    <section id="cat-video" class="home-section cat-section">
+        <div class="cat-section-header">
+            <div class="cat-title-group">
+                <h2>Video <span class="highlight">Editing</span></h2>
+                <p>Cinematic cuts, color grades & commercial stories in 16:9</p>
             </div>
+            <a href="video-editing-16x9.html" class="cat-more-btn">More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
-
-        <!-- ── MODULE 2: VIDEO EDITING 16:9 SLIDER ── -->
-        <div class="portfolio-module">
-            <div class="module-label"><span class="highlight">02</span> Video Editing</div>
-            <div class="pf-slider-wrap" id="slider169Wrap">
-                <button class="pf-arrow pf-prev" id="prev169" aria-label="Previous"><i
-                        class="fa-solid fa-chevron-left"></i></button>
-                <button class="pf-arrow pf-next" id="next169" aria-label="Next"><i
-                        class="fa-solid fa-chevron-right"></i></button>
-                <div class="pf-track" id="track169">
-
-                    <div class="pf-card ratio-16-9">
-                        <img src="https://img.youtube.com/vi/9No-FiEInLA/maxresdefault.jpg" alt="Cinematic Edit"
-                            loading="lazy">
-                        <div class="pf-play-btn" data-yt="9No-FiEInLA"><i class="fa-solid fa-play"></i></div>
-                        <div class="pf-card-label">Cinematic Edit</div>
-                    </div>
-
-                    <div class="pf-card ratio-16-9">
-                        <img src="https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg" alt="Commercial"
-                            loading="lazy">
-                        <div class="pf-play-btn" data-yt="ScMzIvxBSi4"><i class="fa-solid fa-play"></i></div>
-                        <div class="pf-card-label">Commercial Ad</div>
-                    </div>
-
-                    <div class="pf-card ratio-16-9">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Wedding Film"
-                            loading="lazy">
-                        <div class="pf-play-btn" data-yt="dQw4w9WgXcQ"><i class="fa-solid fa-play"></i></div>
-                        <div class="pf-card-label">Wedding Film</div>
-                    </div>
-
-                    <div class="pf-card ratio-16-9">
-                        <img src="https://img.youtube.com/vi/9No-FiEInLA/maxresdefault.jpg" alt="Color Grade"
-                            loading="lazy">
-                        <div class="pf-play-btn" data-yt="9No-FiEInLA"><i class="fa-solid fa-play"></i></div>
-                        <div class="pf-card-label">Color Grade Reel</div>
-                    </div>
-
-                    <div class="pf-card ratio-16-9">
-                        <img src="https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg" alt="Motion Graphics"
-                            loading="lazy">
-                        <div class="pf-play-btn" data-yt="ScMzIvxBSi4"><i class="fa-solid fa-play"></i></div>
-                        <div class="pf-card-label">Motion Graphics</div>
-                    </div>
-
+        <div class="cat-slider-wrap">
+            <button class="pf-arrow pf-prev" id="prev-vid" aria-label="Previous"><i
+                    class="fa-solid fa-chevron-left"></i></button>
+            <button class="pf-arrow pf-next" id="next-vid" aria-label="Next"><i
+                    class="fa-solid fa-chevron-right"></i></button>
+            <div class="cat-track" id="track-vid">
+                <div class="pf-card ratio-16-9">
+                    <img src="https://img.youtube.com/vi/9No-FiEInLA/maxresdefault.jpg" alt="Cinematic Edit"
+                        loading="lazy">
+                    <div class="pf-play-btn" data-yt="9No-FiEInLA"><i class="fa-solid fa-play"></i></div>
+                    <div class="pf-card-label">Cinematic Edit</div>
+                </div>
+                <div class="pf-card ratio-16-9">
+                    <img src="https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg" alt="Commercial" loading="lazy">
+                    <div class="pf-play-btn" data-yt="ScMzIvxBSi4"><i class="fa-solid fa-play"></i></div>
+                    <div class="pf-card-label">Commercial Ad</div>
+                </div>
+                <div class="pf-card ratio-16-9">
+                    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Wedding Film"
+                        loading="lazy">
+                    <div class="pf-play-btn" data-yt="dQw4w9WgXcQ"><i class="fa-solid fa-play"></i></div>
+                    <div class="pf-card-label">Wedding Film</div>
+                </div>
+                <div class="pf-card ratio-16-9">
+                    <img src="https://img.youtube.com/vi/9No-FiEInLA/maxresdefault.jpg" alt="Color Grade"
+                        loading="lazy">
+                    <div class="pf-play-btn" data-yt="9No-FiEInLA"><i class="fa-solid fa-play"></i></div>
+                    <div class="pf-card-label">Color Grade Reel</div>
+                </div>
+                <div class="pf-card ratio-16-9">
+                    <img src="https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg" alt="Motion Graphics"
+                        loading="lazy">
+                    <div class="pf-play-btn" data-yt="ScMzIvxBSi4"><i class="fa-solid fa-play"></i></div>
+                    <div class="pf-card-label">Motion Graphics</div>
+                </div>
+                <div class="pf-card ratio-16-9">
+                    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Brand Video"
+                        loading="lazy">
+                    <div class="pf-play-btn" data-yt="dQw4w9WgXcQ"><i class="fa-solid fa-play"></i></div>
+                    <div class="pf-card-label">Brand Video</div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- ── MODULE 3: VERTICAL 9:16 REELS ── -->
-        <div class="portfolio-module">
-            <div class="module-label"><span class="highlight">03</span> Vertical Reels</div>
-            <div class="pf-slider-wrap" id="slider916Wrap">
-                <button class="pf-arrow pf-prev" id="prev916" aria-label="Previous"><i
-                        class="fa-solid fa-chevron-left"></i></button>
-                <button class="pf-arrow pf-next" id="next916" aria-label="Next"><i
-                        class="fa-solid fa-chevron-right"></i></button>
-                <div class="pf-track pf-track-reels" id="track916">
-
-                    <div class="pf-card ratio-9-16">
-                        <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+1" alt="Reel 1" loading="lazy">
-                        <div class="pf-play-btn" data-yt="9No-FiEInLA"><i class="fa-solid fa-play"></i></div>
-                        <div class="pf-card-label">Fashion Reel</div>
-                    </div>
-
-                    <div class="pf-card ratio-9-16">
-                        <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+2" alt="Reel 2" loading="lazy">
-                        <div class="pf-play-btn" data-yt="ScMzIvxBSi4"><i class="fa-solid fa-play"></i></div>
-                        <div class="pf-card-label">Product Reel</div>
-                    </div>
-
-                    <div class="pf-card ratio-9-16">
-                        <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+3" alt="Reel 3" loading="lazy">
-                        <div class="pf-play-btn" data-yt="9No-FiEInLA"><i class="fa-solid fa-play"></i></div>
-                        <div class="pf-card-label">Event Reel</div>
-                    </div>
-
-                    <div class="pf-card ratio-9-16">
-                        <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+4" alt="Reel 4" loading="lazy">
-                        <div class="pf-play-btn" data-yt="ScMzIvxBSi4"><i class="fa-solid fa-play"></i></div>
-                        <div class="pf-card-label">Social Reel</div>
-                    </div>
-
-                    <div class="pf-card ratio-9-16">
-                        <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+5" alt="Reel 5" loading="lazy">
-                        <div class="pf-play-btn" data-yt="9No-FiEInLA"><i class="fa-solid fa-play"></i></div>
-                        <div class="pf-card-label">Brand Reel</div>
-                    </div>
-
+    <!-- ── CATEGORY 2: VERTICAL REELS 9:16 ── -->
+    <section id="cat-reels" class="home-section cat-section alt-bg">
+        <div class="cat-section-header">
+            <div class="cat-title-group">
+                <h2>Reels & <span class="highlight">Shorts</span></h2>
+                <p>Vertical-first content crafted for social feeds</p>
+            </div>
+            <a href="vertical-reels-9x16.html" class="cat-more-btn">More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="cat-slider-wrap">
+            <button class="pf-arrow pf-prev" id="prev-reels" aria-label="Previous"><i
+                    class="fa-solid fa-chevron-left"></i></button>
+            <button class="pf-arrow pf-next" id="next-reels" aria-label="Next"><i
+                    class="fa-solid fa-chevron-right"></i></button>
+            <div class="cat-track cat-track-reels" id="track-reels">
+                <div class="pf-card ratio-9-16">
+                    <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+1" alt="Fashion Reel" loading="lazy">
+                    <div class="pf-play-btn" data-yt="9No-FiEInLA"><i class="fa-solid fa-play"></i></div>
+                    <div class="pf-card-label">Fashion Reel</div>
+                </div>
+                <div class="pf-card ratio-9-16">
+                    <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+2" alt="Product Reel" loading="lazy">
+                    <div class="pf-play-btn" data-yt="ScMzIvxBSi4"><i class="fa-solid fa-play"></i></div>
+                    <div class="pf-card-label">Product Reel</div>
+                </div>
+                <div class="pf-card ratio-9-16">
+                    <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+3" alt="Event Reel" loading="lazy">
+                    <div class="pf-play-btn" data-yt="9No-FiEInLA"><i class="fa-solid fa-play"></i></div>
+                    <div class="pf-card-label">Event Reel</div>
+                </div>
+                <div class="pf-card ratio-9-16">
+                    <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+4" alt="Social Reel" loading="lazy">
+                    <div class="pf-play-btn" data-yt="ScMzIvxBSi4"><i class="fa-solid fa-play"></i></div>
+                    <div class="pf-card-label">Social Reel</div>
+                </div>
+                <div class="pf-card ratio-9-16">
+                    <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+5" alt="Brand Reel" loading="lazy">
+                    <div class="pf-play-btn" data-yt="9No-FiEInLA"><i class="fa-solid fa-play"></i></div>
+                    <div class="pf-card-label">Brand Reel</div>
+                </div>
+                <div class="pf-card ratio-9-16">
+                    <img src="https://placehold.co/405x720/111111/fd4c11?text=Reel+6" alt="Travel Reel" loading="lazy">
+                    <div class="pf-play-btn" data-yt="dQw4w9WgXcQ"><i class="fa-solid fa-play"></i></div>
+                    <div class="pf-card-label">Travel Reel</div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- ── MODULE 4: BRAND & VISUAL DESIGN ── -->
-        <div class="portfolio-module">
-            <div class="module-label"><span class="highlight">04</span> Brand &amp; Visual Design</div>
-
-            <!-- 4A: Logo Design -->
-            <div class="design-block">
-                <div class="design-block-title">Logo Design</div>
-                <div class="design-grid logo-grid">
-                    <div class="design-item"><img src="https://placehold.co/300x200/1a1a1a/fd4c11?text=Logo+1"
-                            alt="Logo 1" loading="lazy"></div>
-                    <div class="design-item"><img src="https://placehold.co/300x200/1a1a1a/fd4c11?text=Logo+2"
-                            alt="Logo 2" loading="lazy"></div>
-                    <div class="design-item"><img src="https://placehold.co/300x200/1a1a1a/fd4c11?text=Logo+3"
-                            alt="Logo 3" loading="lazy"></div>
-                    <div class="design-item"><img src="https://placehold.co/300x200/1a1a1a/fd4c11?text=Logo+4"
-                            alt="Logo 4" loading="lazy"></div>
-                    <div class="design-item"><img src="https://placehold.co/300x200/1a1a1a/fd4c11?text=Logo+5"
-                            alt="Logo 5" loading="lazy"></div>
-                    <div class="design-item"><img src="https://placehold.co/300x200/1a1a1a/fd4c11?text=Logo+6"
-                            alt="Logo 6" loading="lazy"></div>
-                </div>
+    <!-- ── CATEGORY 3: LOGO DESIGN ── -->
+    <section id="cat-logo" class="home-section cat-section">
+        <div class="cat-section-header">
+            <div class="cat-title-group">
+                <h2>Logo <span class="highlight">Design</span></h2>
+                <p>Identity marks that speak before words can</p>
             </div>
-
-            <!-- 4B: Thumbnail Designs -->
-            <div class="design-block">
-                <div class="design-block-title">Thumbnail Designs</div>
-                <div class="design-grid thumb-grid">
-                    <div class="design-item"><img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+1"
-                            alt="Thumb 1" loading="lazy"></div>
-                    <div class="design-item"><img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+2"
-                            alt="Thumb 2" loading="lazy"></div>
-                    <div class="design-item"><img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+3"
-                            alt="Thumb 3" loading="lazy"></div>
-                    <div class="design-item"><img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+4"
-                            alt="Thumb 4" loading="lazy"></div>
+            <a href="logo-design.html" class="cat-more-btn">More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="cat-slider-wrap">
+            <button class="pf-arrow pf-prev" id="prev-logo" aria-label="Previous"><i
+                    class="fa-solid fa-chevron-left"></i></button>
+            <button class="pf-arrow pf-next" id="next-logo" aria-label="Next"><i
+                    class="fa-solid fa-chevron-right"></i></button>
+            <div class="cat-track" id="track-logo">
+                <div class="pf-card ratio-logo">
+                    <img src="https://placehold.co/360x240/1a1a1a/fd4c11?text=Logo+1" alt="Logo 1" loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Brand Identity</div>
                 </div>
-            </div>
-
-            <!-- 4C: Social Media Creatives -->
-            <div class="design-block">
-                <div class="design-block-title">Social Media Creatives</div>
-                <div class="design-grid masonry-grid">
-                    <div class="design-item"><img src="https://placehold.co/400x500/111/fd4c11?text=Social+1"
-                            alt="Social 1" loading="lazy"></div>
-                    <div class="design-item"><img src="https://placehold.co/400x400/111/fd4c11?text=Social+2"
-                            alt="Social 2" loading="lazy"></div>
-                    <div class="design-item"><img src="https://placehold.co/400x600/111/fd4c11?text=Social+3"
-                            alt="Social 3" loading="lazy"></div>
-                    <div class="design-item"><img src="https://placehold.co/400x400/111/fd4c11?text=Social+4"
-                            alt="Social 4" loading="lazy"></div>
-                    <div class="design-item"><img src="https://placehold.co/400x500/111/fd4c11?text=Social+5"
-                            alt="Social 5" loading="lazy"></div>
-                    <div class="design-item"><img src="https://placehold.co/400x350/111/fd4c11?text=Social+6"
-                            alt="Social 6" loading="lazy"></div>
+                <div class="pf-card ratio-logo">
+                    <img src="https://placehold.co/360x240/1a1a1a/fd4c11?text=Logo+2" alt="Logo 2" loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Wordmark</div>
+                </div>
+                <div class="pf-card ratio-logo">
+                    <img src="https://placehold.co/360x240/1a1a1a/fd4c11?text=Logo+3" alt="Logo 3" loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Minimalist Mark</div>
+                </div>
+                <div class="pf-card ratio-logo">
+                    <img src="https://placehold.co/360x240/1a1a1a/fd4c11?text=Logo+4" alt="Logo 4" loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Letterform</div>
+                </div>
+                <div class="pf-card ratio-logo">
+                    <img src="https://placehold.co/360x240/1a1a1a/fd4c11?text=Logo+5" alt="Logo 5" loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Icon Design</div>
+                </div>
+                <div class="pf-card ratio-logo">
+                    <img src="https://placehold.co/360x240/1a1a1a/fd4c11?text=Logo+6" alt="Logo 6" loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Full Brand System</div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- ── MODULE 5: WEDDING & EVENT SHOOTS ── -->
-        <div class="portfolio-module">
-            <div class="module-label"><span class="highlight">05</span> Wedding &amp; Event Shoots</div>
-            <div class="wedding-grid">
+    <!-- ── CATEGORY 4: THUMBNAIL DESIGN ── -->
+    <section id="cat-thumb" class="home-section cat-section alt-bg">
+        <div class="cat-section-header">
+            <div class="cat-title-group">
+                <h2>Thumbnail <span class="highlight">Design</span></h2>
+                <p>Click-worthy visuals that stop the scroll</p>
+            </div>
+            <a href="thumbnail-design.html" class="cat-more-btn">More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="cat-slider-wrap">
+            <button class="pf-arrow pf-prev" id="prev-thumb" aria-label="Previous"><i
+                    class="fa-solid fa-chevron-left"></i></button>
+            <button class="pf-arrow pf-next" id="next-thumb" aria-label="Next"><i
+                    class="fa-solid fa-chevron-right"></i></button>
+            <div class="cat-track" id="track-thumb">
+                <div class="pf-card ratio-thumb">
+                    <img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+1" alt="Thumb 1" loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">YouTube Thumbnail</div>
+                </div>
+                <div class="pf-card ratio-thumb">
+                    <img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+2" alt="Thumb 2" loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Gaming Channel</div>
+                </div>
+                <div class="pf-card ratio-thumb">
+                    <img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+3" alt="Thumb 3" loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Tech Review</div>
+                </div>
+                <div class="pf-card ratio-thumb">
+                    <img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+4" alt="Thumb 4" loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Vlog Style</div>
+                </div>
+                <div class="pf-card ratio-thumb">
+                    <img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+5" alt="Thumb 5" loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Tutorial Thumb</div>
+                </div>
+                <div class="pf-card ratio-thumb">
+                    <img src="https://placehold.co/640x360/0d0d0d/fd4c11?text=Thumbnail+6" alt="Thumb 6" loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Reaction Video</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="wedding-item wedding-large">
+    <!-- ── CATEGORY 5: WEDDING & EVENT SHOOTS ── -->
+    <section id="cat-wedding" class="home-section cat-section">
+        <div class="cat-section-header">
+            <div class="cat-title-group">
+                <h2>Wedding & <span class="highlight">Events</span></h2>
+                <p>Cinematic memories captured for a lifetime</p>
+            </div>
+            <a href="wedding-shoots.html" class="cat-more-btn">More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="cat-slider-wrap">
+            <button class="pf-arrow pf-prev" id="prev-wed" aria-label="Previous"><i
+                    class="fa-solid fa-chevron-left"></i></button>
+            <button class="pf-arrow pf-next" id="next-wed" aria-label="Next"><i
+                    class="fa-solid fa-chevron-right"></i></button>
+            <div class="cat-track cat-track-wedding" id="track-wed">
+                <div class="pf-card ratio-wedding">
                     <img src="https://placehold.co/900x500/0d0d0d/fd4c11?text=Wedding+Film" alt="Wedding Film"
                         loading="lazy">
-                    <div class="wedding-overlay">
-                        <span>Wedding Film</span>
+                    <div class="pf-expand-btn" data-img="https://placehold.co/900x500/0d0d0d/fd4c11?text=Wedding+Film">
                         <i class="fa-solid fa-expand"></i>
                     </div>
+                    <div class="pf-card-label">Wedding Film</div>
                 </div>
-
-                <div class="wedding-item">
-                    <img src="https://placehold.co/440x300/111/fd4c11?text=Event+1" alt="Event 1" loading="lazy">
-                    <div class="wedding-overlay"><span>Corporate Event</span><i class="fa-solid fa-expand"></i></div>
+                <div class="pf-card ratio-wedding">
+                    <img src="https://placehold.co/900x500/111/fd4c11?text=Corporate+Event" alt="Corporate Event"
+                        loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Corporate Event</div>
                 </div>
-
-                <div class="wedding-item">
-                    <img src="https://placehold.co/440x300/111/fd4c11?text=Event+2" alt="Event 2" loading="lazy">
-                    <div class="wedding-overlay"><span>Fashion Show</span><i class="fa-solid fa-expand"></i></div>
+                <div class="pf-card ratio-wedding">
+                    <img src="https://placehold.co/900x500/111/fd4c11?text=Fashion+Show" alt="Fashion Show"
+                        loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Fashion Show</div>
                 </div>
-
-                <div class="wedding-item">
-                    <img src="https://placehold.co/440x300/111/fd4c11?text=Event+3" alt="Event 3" loading="lazy">
-                    <div class="wedding-overlay"><span>Product Launch</span><i class="fa-solid fa-expand"></i></div>
+                <div class="pf-card ratio-wedding">
+                    <img src="https://placehold.co/900x500/111/fd4c11?text=Product+Launch" alt="Product Launch"
+                        loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Product Launch</div>
                 </div>
-
-                <div class="wedding-item">
-                    <img src="https://placehold.co/440x300/111/fd4c11?text=Event+4" alt="Event 4" loading="lazy">
-                    <div class="wedding-overlay"><span>Award Night</span><i class="fa-solid fa-expand"></i></div>
+                <div class="pf-card ratio-wedding">
+                    <img src="https://placehold.co/900x500/111/fd4c11?text=Award+Night" alt="Award Night"
+                        loading="lazy">
+                    <div class="pf-expand-btn"><i class="fa-solid fa-expand"></i></div>
+                    <div class="pf-card-label">Award Night</div>
                 </div>
-
             </div>
         </div>
-
-        <!-- ── MODULE 6: BEHIND THE WORK ── -->
-        <div class="portfolio-module">
-            <div class="module-label"><span class="highlight">06</span> Behind the Work</div>
-
-            <!-- Before / After Slider -->
-            <div class="btw-grid">
-
-                <div class="ba-slider-wrap">
-                    <div class="ba-label-top">Before / After</div>
-                    <div class="ba-slider" id="baSlider">
-                        <div class="ba-after">
-                            <img src="https://placehold.co/700x400/0d0d0d/fd4c11?text=AFTER+(Color+Grade)" alt="After"
-                                loading="lazy">
-                        </div>
-                        <div class="ba-before">
-                            <img src="https://placehold.co/700x400/333/aaaaaa?text=BEFORE+(Raw+Footage)" alt="Before"
-                                loading="lazy">
-                        </div>
-                        <div class="ba-handle" id="baHandle"><i class="fa-solid fa-arrows-left-right"></i></div>
-                    </div>
-                </div>
-
-                <div class="btw-breakdown-grid">
-                    <div class="btw-card">
-                        <i class="fa-solid fa-layer-group"></i>
-                        <h4>Editing Timeline</h4>
-                        <p>Multi-track editing in Premiere Pro with precise frame-by-frame cuts for cinematic flow.</p>
-                    </div>
-                    <div class="btw-card">
-                        <i class="fa-solid fa-palette"></i>
-                        <h4>Color Grading</h4>
-                        <p>DaVinci Resolve color science — node-based grading with LUT correction and skin tone
-                            matching.</p>
-                    </div>
-                    <div class="btw-card">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
-                        <h4>Motion Graphics</h4>
-                        <p>After Effects compositions with custom expressions, particle systems, and kinetic typography.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
     </section>
+
+    <!-- ── CATEGORY 6: BEHIND THE SCENE ── -->
+    <section id="cat-btw" class="home-section cat-section alt-bg">
+        <div class="cat-section-header">
+            <div class="cat-title-group">
+                <h2>Behind The <span class="highlight">Scene</span></h2>
+                <p>Process, breakdowns & before/after transformations</p>
+            </div>
+            <a href="behind-the-work.html" class="cat-more-btn">More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="bts-split-container">
+            <!-- Left Side: Interactive Before/After Slider (60%) -->
+            <div class="bts-left-col bts-fade-in">
+                <div class="ba-slider-container">
+                    <!-- Base Image (Graded) -->
+                    <img src="https://placehold.co/1920x1080/0d0d0d/fd4c11.webp?text=COLOR+GRADED"
+                        alt="Color Graded Video" class="ba-image-base" fetchpriority="high" decoding="async">
+                    <!-- Overlay Image (Raw) -->
+                    <div class="ba-image-overlay-wrapper smooth-transition">
+                        <img src="https://placehold.co/1920x1080/555555/aaaaaa.webp?text=RAW+FOOTAGE" alt="Raw Video"
+                            class="ba-image-overlay" loading="lazy" decoding="async">
+                    </div>
+                    <!-- Drag Handle -->
+                    <div class="ba-slider-handle smooth-transition">
+                        <div class="ba-slider-line"></div>
+                        <div class="ba-slider-button">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Behind The Scenes Moving Gallery (40%) -->
+            <div class="bts-right-col bts-fade-in bts-delay">
+                <div class="bts-gallery-viewport">
+                    <div class="bts-gallery-track">
+                        <!-- Original Set -->
+                        <div class="bts-gallery-item">
+                            <img src="https://placehold.co/600x400/111111/fd4c11?text=Setup+1" alt="Behind the scenes 1"
+                                loading="lazy">
+                        </div>
+                        <div class="bts-gallery-item">
+                            <img src="https://placehold.co/600x400/222222/fd4c11?text=Setup+2" alt="Behind the scenes 2"
+                                loading="lazy">
+                        </div>
+                        <div class="bts-gallery-item">
+                            <img src="https://placehold.co/600x400/111111/fd4c11?text=Setup+3" alt="Behind the scenes 3"
+                                loading="lazy">
+                        </div>
+                        <div class="bts-gallery-item">
+                            <img src="https://placehold.co/600x400/222222/fd4c11?text=Setup+4" alt="Behind the scenes 4"
+                                loading="lazy">
+                        </div>
+
+                        <!-- Duplicated Set for infinite scroll -->
+                        <div class="bts-gallery-item">
+                            <img src="https://placehold.co/600x400/111111/fd4c11?text=Setup+1" alt="Behind the scenes 1"
+                                loading="lazy">
+                        </div>
+                        <div class="bts-gallery-item">
+                            <img src="https://placehold.co/600x400/222222/fd4c11?text=Setup+2" alt="Behind the scenes 2"
+                                loading="lazy">
+                        </div>
+                        <div class="bts-gallery-item">
+                            <img src="https://placehold.co/600x400/111111/fd4c11?text=Setup+3" alt="Behind the scenes 3"
+                                loading="lazy">
+                        </div>
+                        <div class="bts-gallery-item">
+                            <img src="https://placehold.co/600x400/222222/fd4c11?text=Setup+4" alt="Behind the scenes 4"
+                                loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- Services Section -->
 
