@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     // ------------------------------------------------------------------
     // CINEMATIC INTRO (Landing Hero)
@@ -239,6 +239,13 @@
             track.appendChild(clone);
         });
 
+        // Ensure newly cloned videos autoplay
+        const videos = track.querySelectorAll('video');
+        videos.forEach(v => {
+            v.muted = true;
+            v.play().catch(e => console.log('Autoplay prevented on slider video:', e));
+        });
+
         rafId = requestAnimationFrame(step);
 
         // Pause on hover (desktop)
@@ -260,6 +267,25 @@
             paused = false;
             lastTime = null;
         }, { passive: true });
+
+        // Ensure only one video plays sound at a time
+        track.addEventListener('volumechange', (e) => {
+            if (e.target.tagName === 'VIDEO' && !e.target.muted && e.target.volume > 0) {
+                const allVideos = document.querySelectorAll('video');
+                allVideos.forEach(v => {
+                    if (v !== e.target) v.muted = true;
+                });
+            }
+        }, true);
+        
+        track.addEventListener('play', (e) => {
+            if (e.target.tagName === 'VIDEO' && !e.target.muted && e.target.volume > 0) {
+                const allVideos = document.querySelectorAll('video');
+                allVideos.forEach(v => {
+                    if (v !== e.target) v.muted = true;
+                });
+            }
+        }, true);
 
         // Arrow buttons — jump one card width
         const jumpCard = (dir) => {
